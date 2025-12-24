@@ -52,7 +52,16 @@
         margin: 1rem 0;
         width: 50%;
     }
-  
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+    
 }
 
 /* Mobile devices */
