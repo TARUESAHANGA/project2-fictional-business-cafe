@@ -223,3 +223,38 @@ img {
 .mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
+
+/* ---------- DESKTOP DROPDOWN ---------- */
+.nav-menu li { position: relative; }
+
+.sub-menu-1 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white, #fff);
+  min-width: 220px;
+  padding: .5rem 0;
+  border-radius: var(--border-radius, 12px);
+  box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, .08));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity .3s ease, transform .3s ease;
+  z-index: 1000;
+}
+.sub-menu-1 ul { list-style: none; }
+.sub-menu-1 a {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem 1.25rem;
+  font-size: .95rem;
+  color: var(--text-dark, #333);
+  white-space: nowrap;
+  transition: background .2s;
+}
+.sub-menu-1 a:hover { background: rgba(139, 69, 19, .08); }
+
+/* reveal on hover / keyboard focus */
+.nav-menu li:hover > .sub-menu-1,
+.nav-menu li:focus-within > .sub-menu-1 { opacity: 1; visibility: visible; transform: translateY(0); }

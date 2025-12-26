@@ -41,6 +41,7 @@
                 <button class="menu-tab" onclick="showSection('breakfast')">🍳 Breakfast</button>
                 <button class="menu-tab" onclick="showSection('lunch')">🥪 Lunch & Light Bites</button>
                 <button class="menu-tab" onclick="showSection('desserts')">🍰 Desserts</button>
+                <button class="menu-tab" onclick="showSection('desserts')">🍳 Kiddies Meal</button>
             </div>
         </nav>
     
@@ -724,7 +725,7 @@
                     </div>
                     <div class="offer-item">
                         <h4>Breakfast Combo</h4>
-                        <p>Coffee + Pastry for $7.50</p>
+                        <p>Coffee + Pastry for £7.50</p>
                     </div>
                     <div class="offer-item">
                         <h4>Loyalty Program</h4>
@@ -735,7 +736,25 @@
         </div>
     </main>
 
+    <!-- smooth arrival -->
+    <script>
+      if (location.hash) {
+         const target = document.querySelector(location.hash);
+         target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         target?.classList.add('highlight');   /* flash highlight */
+      }
+    </script>
+
+    <style>
+  @keyframes flash {
+    50% { background: var(--accent-color, #F4A460); }
+  }
+  .highlight {
+    animation: flash 1.2s ease;
+  }
+    </style>
     <!-- SCRIPTS -->
+     <script src="assets/js/menu.js"></script>
     <script src="assets/js/header.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
