@@ -100,4 +100,13 @@
         visibility: visible;
         transform: none;
     }
+
+    /* Landing Page */
+    .hero {
+        
+    }
+
+    .menu-sidebar {
+        display: none;
+    }
 }

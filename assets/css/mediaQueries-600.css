@@ -1,65 +1,3 @@
-/* @media screen and (max-width: 600px) {
-    body {
-        padding-top: 60px;
-    }
-    
-    .nav-container {
-        padding: 0 0.5rem;
-        
-    }
-   
-    .nav-logo {
-        font-size: 1rem;
-    }
-    
-    .nav-logo i {
-        font-size: 1rem;
-    }
-    
-    .nav-right {
-        right: 0%;
-        gap: 0.3rem;
-    }
-    
-    .nav-icon {
-        display: none;
-        width: 15px;
-        height: 15px;
-        font-size: 0.75rem;
-    }
-    
-    .order-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-        border-radius: 8px;
-    }
-    
-    .nav-link {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.95rem;
-    }
-    
-    .dropdown-link {
-        padding: 0.6rem 2rem;
-        font-size: 0.85rem;
-    }
-    
-    .mobile-menu-toggle {
-        padding: 0.5rem;
-    }
-    
-    .mobile-menu-toggle span {
-        width: 20px;
-        height: 1.5px;
-    }
-      
-    .nav-menu {
-        top: 65px;
-        height: calc(100vh - 65px);
-    }
-}
- */
-
  /* ===== Media Queries for 600px and below ===== */
 @media screen and (max-width: 600px) {
     /* Navigation */
@@ -146,5 +84,11 @@
 
     .projects-image {
         width: 200px;
+    }
+    /* Landing Page */
+    .hero-container {
+       display: flex;
+       flex-direction: column-reverse;
+       align-items: center;
     }
 }

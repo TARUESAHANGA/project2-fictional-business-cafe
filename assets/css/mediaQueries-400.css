@@ -1,39 +1,3 @@
-/* @media screen and (max-width: 400px) {
-    .nav-container {
-        left: 100%;
-    }
-    .nav-logo {
-        font-size: 1rem;
-    }
-    
-    .nav-logo i {
-        font-size: 0.9rem;
-    }
-    
-    .nav-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 0.7rem;
-    }
-    
-    .order-btn {
-        display: none;
-        padding: 0.3rem 0.6rem;
-        font-size: 0.75rem;
-    }
-    
-    .nav-link {
-        padding: 0.7rem 1rem;
-        font-size: 0.9rem;
-    }
-    
-    .dropdown-link {
-        padding: 0.5rem 1.8rem;
-        font-size: 0.8rem;
-    }
-} */
-
-/* ===== Media Queries for 400px and below ===== */
 @media screen and (max-width: 400px) {
     /* Navigation */
     .nav-container {
