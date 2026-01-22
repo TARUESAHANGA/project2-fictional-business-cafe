@@ -72,9 +72,11 @@ img {
 .main-container {
     display: flex;
     width: 100%;
-    min-height: 100vh; /* Changed from height: 100% */
-    margin: 0; /* Removed auto margin */
+    min-height: 100vh; 
+    margin: 0;
 }
+
+/* Sidebar Navigation */
 
 .menu-sidebar {
     position: sticky;
@@ -87,9 +89,6 @@ img {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     z-index: 100; 
 }
-
-/* Sidebar Navigation */
-
 
 .menu-nav {
     display: flex;
@@ -121,7 +120,7 @@ img {
     font-size: 1rem;
     text-align: center;
     width: 100%;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
 }
 
 .menu-tab:hover,
@@ -134,10 +133,10 @@ img {
 
 /* Menu Content Area */
 .menu-content-area {
-    flex: 1; /* Take remaining horizontal space */
+    flex: 1;
     padding: 2rem;
-    overflow-y: auto; /* Allow vertical scrolling */
-    min-height: 100vh; /* Ensure full height */
+    overflow-y: auto;
+    min-height: 100vh; 
 }
 
 /* Menu Container */
@@ -145,7 +144,7 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    width: 100%; /* Ensure full width */
+    width: 100%;
 }
 
 .menu-section {
@@ -183,8 +182,8 @@ img {
 /* Menu Grid */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min-width */
-    gap: 2rem; /* Increased gap */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     margin-bottom: 3rem;
 }
 
@@ -379,6 +378,7 @@ img {
     to { transform: rotate(360deg); }
 }
 
+
 /* Responsive Design - Tablet */
 @media screen and (max-width: 1024px) {
     .main-container {
@@ -503,36 +503,552 @@ img {
     }
 }
 
-/* Print styles */
-@media print {
-    body {
-        background: white;
-        color: black;
+/* Kiddies Menu Styles */
+#kiddies .section-header {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#kiddies .section-header h2 {
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+#kiddies .section-header p {
+    color: #d63384;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#kiddies .category-title {
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(45deg, #fff5f5, #ffe0e0);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#kiddies .menu-item {
+    background: linear-gradient(135deg, #ffffff 0%, #fff9f9 100%);
+    border: 2px solid #ffe0e0;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#kiddies .menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+    border-color: #ff9a9e;
+}
+
+#kiddies .item-name {
+    color: #d63384;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+#kiddies .item-description {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#kiddies .item-price {
+    color: #ff6b6b;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#kiddies .tag {
+    background: linear-gradient(45deg, #ff9a9e, #fecfef);
+    color: #d63384;
+    border: none;
+    font-weight: 500;
+}
+
+/* Kiddies Special Offers */
+#kiddies .special-offers {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+#kiddies .special-offers h3 {
+    color: #ff6b6b;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#kiddies .offer-item {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#kiddies .offer-item:hover {
+    transform: scale(1.05);
+}
+
+#kiddies .offer-price {
+    color: #ff6b6b;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+#kiddies .offer-savings {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Kids Info Section */
+.kids-info {
+    background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.kids-info h3 {
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.info-item i {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.info-item h4 {
+    color: #d63384;
+    margin-bottom: 0.5rem;
+}
+
+.info-item p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Fun Animations */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+#kiddies .menu-item:hover .item-name {
+    animation: bounce 1s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #kiddies .section-header h2 {
+        font-size: 2rem;
     }
     
-    .main-container {
+    #kiddies .category-title {
+        font-size: 1.3rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    #kiddies .section-header {
+        padding: 1.5rem;
+    }
+    
+    #kiddies .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    #kiddies .menu-item {
+        padding: 1.2rem;
+    }
+}
+
+/* Menu Cart Styles */
+.menu-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background: #fafafa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.add-to-cart-btn {
+    background: #d4a574;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #b8935f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Cart Badge */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #d4a574;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: none;
+}
+
+.cart-badge:not(:empty) {
+    display: flex;
+}
+
+/* Quick Add Modal Styles */
+.quick-add-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-header h3 {
+    color: #2c1810;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.item-description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.price-display {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4a574;
+    margin-bottom: 1.5rem;
+}
+
+.quantity-selector {
+    margin-bottom: 1.5rem;
+}
+
+.quantity-selector label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c1810;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #d4a574;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.qty-btn:hover {
+    background: #b8935f;
+    transform: scale(1.1);
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.customization-options {
+    margin-bottom: 1.5rem;
+}
+
+.customization-options h4 {
+    color: #2c1810;
+    margin-bottom: 1rem;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.option-label:hover {
+    background: #f8f8f8;
+}
+
+.option-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #d4a574;
+}
+
+.special-instructions {
+    margin-bottom: 1.5rem;
+}
+
+.special-instructions label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c1810;
+}
+
+.special-instructions textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 2px solid #f0f0f0;
+}
+
+.btn-cancel, .btn-add-to-cart {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-cancel {
+    background: #f5f5f5;
+    color: #666;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+}
+
+.btn-add-to-cart {
+    background: #d4a574;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-add-to-cart:hover {
+    background: #b8935f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+}
+
+/* Success Message */
+.cart-success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4caf50;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1001;
+    animation: slideInRight 0.3s ease;
+}
+
+.success-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .btn-cancel, .btn-add-to-cart {
         width: 100%;
-        margin: 0;
+        justify-content: center;
     }
-    
-    .menu-sidebar {
-        box-shadow: none;
-        border: 1px solid #ddd;
+}
+
+@media (max-width: 480px) {
+    .quantity-controls {
+        justify-content: center;
     }
-    
-    .menu-nav {
-        display: none;
-    }
-    
-    .special-offers {
-        background: white;
-        color: black;
-        border: 2px solid var(--primary-brown);
-    }
-    
-    .menu-category {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
+
+    .customization-options {
+        font-size: 0.9rem;
     }
 }

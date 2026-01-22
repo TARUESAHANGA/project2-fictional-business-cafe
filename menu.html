@@ -54,8 +54,12 @@
                 </ul>
     
                 <div class="nav-right">
+                    <a href="#menu-nav" class="nav-icon"><i class="fa-solid fa-book"></i></a>
                     <a href="#search" class="nav-icon"><i class="fas fa-search"></i></a>
-                    <a href="#cart" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="cart.html" class="nav-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </a>
                     <a href="menu.html" class="order-btn">Order Now</a>
                     <button class="mobile-menu-toggle">
                         <span></span>
@@ -71,9 +75,9 @@
             <!-- Sidebar Menu Tabs -->
             <div class="menu-sidebar">
            
-                <aside class="menu-nav">
-                  
+                <aside class="menu-nav" id="menu-nav">
                     <div class="menu-nav-container">
+                       
                         <button class="menu-tab active" onclick="showSection('#coffee')">☕ Coffee & Espresso</button>
                         <button class="menu-tab" onclick="showSection('#tea')">🍵 Tea & Beverages</button>
                         <button class="menu-tab" onclick="showSection('#pastries')">🥐 Fresh Pastries</button>
@@ -761,85 +765,266 @@
                 <!-- Kiddies Section -->
                 <section id="kiddies" class="menu-section">
                     <div class="section-header">
-                        <h2>Desserts</h2>
-                        <p>Sweet endings to your perfect meal</p>
+                        <h2>🧸 Kiddies Menu</h2>
+                        <p>Fun, delicious meals specially made for our youngest guests (12 & under)</p>
                     </div>
                     <div class="menu-grid">
                         <div class="menu-category">
-                            <h3 class="category-title">Cakes & Pies</h3>
+                            <h3 class="category-title">🍳 Breakfast Favorites</h3>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <div class="item-name">Chocolate Cake</div>
-                                    <div class="item-description">Rich chocolate layer cake</div>
+                                    <div class="item-name">Mini Pancakes</div>
+                                    <div class="item-description">Three small fluffy pancakes with maple syrup and a smiley face made of fruit</div>
                                     <div class="item-tags">
-                                        <span class="tag">Rich</span>
-                                    </div>
-                                </div>
-                                <div class="item-price">£5.50</div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-info">
-                                    <div class="item-name">Cheesecake</div>
-                                    <div class="item-description">New York style with berry compote</div>
-                                    <div class="item-tags">
-                                        <span class="tag">Classic</span>
-                                    </div>
-                                </div>
-                                <div class="item-price">£5.75</div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-info">
-                                    <div class="item-name">Apple Pie</div>
-                                    <div class="item-description">Warm apple pie with cinnamon</div>
-                                    <div class="item-tags">
-                                        <span class="tag">Warm</span>
+                                        <span class="tag">Fun</span>
+                                        <span class="tag">Vegetarian</span>
                                     </div>
                                 </div>
                                 <div class="item-price">£4.50</div>
                             </div>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <div class="item-name">Tiramisu</div>
-                                    <div class="item-description">Italian coffee-flavored dessert</div>
+                                    <div class="item-name">Bear Toast</div>
+                                    <div class="item-description">Bear-shaped toast with peanut butter, banana ears, and berry eyes</div>
                                     <div class="item-tags">
-                                        <span class="tag">Italian</span>
-                                    </div>
-                                </div>
-                                <div class="item-price">£6.00</div>
-                            </div>
-                        </div>
-        
-                        <div class="menu-category">
-                            <h3 class="category-title">Frozen Treats</h3>
-                            <div class="menu-item">
-                                <div class="item-info">
-                                    <div class="item-name">Ice Cream Scoop</div>
-                                    <div class="item-description">Vanilla, chocolate, or strawberry</div>
-                                    <div class="item-tags">
-                                        <span class="tag">Classic</span>
+                                        <span class="tag">Fun Shape</span>
+                                        <span class="tag">Nut-Free Option</span>
                                     </div>
                                 </div>
                                 <div class="item-price">£3.50</div>
                             </div>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <div class="item-name">Affogato</div>
-                                    <div class="item-description">Vanilla ice cream with espresso shot</div>
+                                    <div class="item-name">Tiny Egg Cups</div>
+                                    <div class="item-description">Scrambled eggs in bread cups with cheese</div>
                                     <div class="item-tags">
-                                        <span class="tag">Coffee</span>
+                                        <span class="tag">Protein</span>
+                                        <span class="tag">Soft</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£4.00</div>
+                            </div>
+                        </div>
+                
+                        <div class="menu-category">
+                            <h3 class="category-title">🥪 Little Lunch Boxes</h3>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Star Sandwich</div>
+                                    <div class="item-description">Star-shaped sandwich with turkey & cheese, served with apple slices</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Fun Shape</span>
+                                        <span class="tag">Fruit Included</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£5.50</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Cheesy Quesadilla</div>
+                                    <div class="item-description">Small cheese quesadilla with mild salsa for dipping</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Vegetarian</span>
+                                        <span class="tag">Mild</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£4.50</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Mac & Cheese Cup</div>
+                                    <div class="item-description">Creamy macaroni and cheese in an easy-to-hold cup</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Comfort Food</span>
+                                        <span class="tag">Vegetarian</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£4.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Chicken Nuggets (5 pieces)</div>
+                                    <div class="item-description">Golden chicken nuggets with ketchup or BBQ sauce</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Protein</span>
+                                        <span class="tag">Kid Favorite</span>
                                     </div>
                                 </div>
                                 <div class="item-price">£5.00</div>
                             </div>
+                        </div>
+                
+                        <div class="menu-category">
+                            <h3 class="category-title">🥤 Little Drinks</h3>
                             <div class="menu-item">
                                 <div class="item-info">
-                                    <div class="item-name">Milkshake</div>
-                                    <div class="item-description">Thick and creamy, various flavors</div>
+                                    <div class="item-name">Babyccino</div>
+                                    <div class="item-description">Frothed milk with a sprinkle of chocolate powder, served in a tiny cup</div>
                                     <div class="item-tags">
-                                        <span class="tag">Creamy</span>
+                                        <span class="tag">No Caffeine</span>
+                                        <span class="tag">Fun</span>
                                     </div>
                                 </div>
-                                <div class="item-price">£4.50</div>
+                                <div class="item-price">£2.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Fruit Punch</div>
+                                    <div class="item-description">Mixed fruit juice with fun silly straw</div>
+                                    <div class="item-tags">
+                                        <span class="tag">100% Juice</span>
+                                        <span class="tag">Vitamin C</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£2.50</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Chocolate Milk</div>
+                                    <div class="item-description">Cold milk with chocolate syrup, served with a fun straw</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Calcium</span>
+                                        <span class="tag">Kid Favorite</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£2.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Apple Juice Box</div>
+                                    <div class="item-description">Individual apple juice box with easy-open straw</div>
+                                    <div class="item-tags">
+                                        <span class="tag">No Added Sugar</span>
+                                        <span class="tag">Easy Grip</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£1.50</div>
+                            </div>
+                        </div>
+                
+                        <div class="menu-category">
+                            <h3 class="category-title">🍰 Tiny Treats</h3>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Animal Cookie Plate</div>
+                                    <div class="item-description">Assorted animal-shaped cookies with a glass of milk</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Fun Shapes</span>
+                                        <span class="tag">Classic</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£3.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Rainbow Cupcake</div>
+                                    <div class="item-description">Colorful cupcake with vanilla frosting and sprinkles</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Colorful</span>
+                                        <span class="tag">Fun</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£2.50</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Frozen Yogurt Cup</div>
+                                    <div class="item-description">Vanilla frozen yogurt with berry toppings</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Healthier</span>
+                                        <span class="tag">Fruit</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£3.50</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Fruit Kabobs</div>
+                                    <div class="item-description">Colorful fruit pieces on safe rounded sticks</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Fresh</span>
+                                        <span class="tag">Healthy</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£2.50</div>
+                            </div>
+                        </div>
+                
+                        <div class="menu-category">
+                            <h3 class="category-title">🎉 Fun Extras</h3>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Coloring Page & Crayons</div>
+                                    <div class="item-description">Fun cafe-themed coloring page with 4 crayons to keep</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Activity</span>
+                                        <span class="tag">Take Home</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">£1.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">Treasure Hunt Card</div>
+                                    <div class="item-description">Find hidden treasures in the cafe and win a sticker</div>
+                                    <div class="item-tags">
+                                        <span class="tag">Game</span>
+                                        <span class="tag">Free Prize</span>
+                                    </div>
+                                </div>
+                                <div class="item-price">FREE</div>
+                            </div>
+                        </div>
+                
+                        <!-- Kids Meal Deals -->
+                        <div class="special-offers">
+                            <h3>🎁 Kiddies Meal Deals</h3>
+                            <div class="offer-grid">
+                                <div class="offer-item">
+                                    <h4>Breakfast Buddy</h4>
+                                    <p>Mini pancakes + babyccino + coloring page</p>
+                                    <div class="offer-price">£6.50</div>
+                                    <div class="offer-savings">Save £1.50!</div>
+                                </div>
+                                <div class="offer-item">
+                                    <h4>Lunch Box Special</h4>
+                                    <p>Star sandwich + juice box + animal cookies</p>
+                                    <div class="offer-price">£7.50</div>
+                                    <div class="offer-savings">Save £2.00!</div>
+                                </div>
+                                <div class="offer-item">
+                                    <h4>Tiny Treat Combo</h4>
+                                    <p>Mac & cheese + frozen yogurt + treasure hunt</p>
+                                    <div class="offer-price">£6.00</div>
+                                    <div class="offer-savings">Save £1.50!</div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Kids Safety & Info -->
+                        <div class="kids-info">
+                            <h3>👨‍👩‍👧‍👦 For Parents</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <h4>Allergen Info</h4>
+                                    <p>All items can be modified for allergies. Please ask our staff!</p>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-thermometer-half"></i>
+                                    <h4>Safety First</h4>
+                                    <p>All kids' items are served at safe temperatures</p>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-baby"></i>
+                                    <h4>Baby Friendly</h4>
+                                    <p>High chairs and baby changing facilities available</p>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-heart"></i>
+                                    <h4>Healthy Options</h4>
+                                    <p>Fresh fruit and veggie options available for all meals</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -901,9 +1086,11 @@
                 </div>
             </div>
         </footer>
-    
+
         <script src="assets/js/menu.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/cart.js"></script>
+        <script src="assets/js/menu-cart.js"></script>
     </body>
 </body>
 </html>

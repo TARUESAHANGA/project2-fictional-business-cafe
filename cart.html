@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cafe Website - Cart Page</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/mediaQueries-400.css">
+    <link rel="stylesheet" href="assets/css/mediaQueries-600.css">
+    <link rel="stylesheet" href="assets/css/mediaQueries-920.css">
+    <!-- Linking Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><i class="fas fa-coffee"></i>The Cafe</a>
+        
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="menu.html" class="nav-link">Menu</a>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <ul class="dropdown">
+                        <li class="dropdown-item"><a href="menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
+                        <li class="dropdown-item"><a href="menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
+                        <li class="dropdown-item"><a href="menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
+                        <li class="dropdown-item"><a href="menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
+                        <li class="dropdown-item"><a href="menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
+                        <li class="dropdown-item"><a href="menu.html#kiddies-meal" class="dropdown-link">🍳 Kiddies Meal</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="#search" class="nav-icon"><i class="fas fa-menu"></i></a>
+                <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+                <a href="menu.html" class="order-btn">Order Now</a>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+           
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Cart Section -->
+        <section class="cart-section">
+            <div class="container">
+                <h1 class="cart-title">Your Shopping Cart</h1>
+                
+                <div class="cart-container">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be dynamically added here -->
+                        <div class="empty-cart-message">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Your cart is empty</h3>
+                            <p>Add some delicious items from our menu!</p>
+                            <a href="menu.html" class="btn-primary">Browse Menu</a>
+                        </div>
+                    </div>
+    
+                    <div class="cart-summary" id="cartSummary" style="display: none;">
+                        <h3>Order Summary</h3>
+                        <div class="summary-item">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">£0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Delivery Fee:</span>
+                            <span id="deliveryFee">£2.99</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Tax (10%):</span>
+                            <span id="tax">£0.00</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Total:</span>
+                            <span id="total">£0.00</span>
+                        </div>
+                        
+                        <button class="btn-checkout" id="checkoutBtn">
+                            <i class="fas fa-credit-card"></i>
+                            Proceed to Checkout
+                        </button>
+                        
+                        <button class="btn-clear" id="clearCartBtn">
+                            <i class="fas fa-trash"></i>
+                            Clear Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Cafe</h3>
+                    <p>Serving our community with love, one cup at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday-Friday: 7am-7pm</p>
+                    <p>Saturday-Sunday: 8am-6pm</p>
+                    <p>Holiday hours may vary</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Cafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

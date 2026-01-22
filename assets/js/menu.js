@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+
 // Add CSS for smooth transitions and better UX
 const style = document.createElement('style');
 style.textContent = `
