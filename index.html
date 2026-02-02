@@ -28,33 +28,34 @@
                 <li class="nav-item">
                     <a href="/index.html" class="nav-link active">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="./pages/menu.html" class="nav-link">Menu</a>
+                <li class="nav-item has-dropdown">
+                    <a href="pages/menu.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Menu</a>
                     <i class="fa-solid fa-chevron-down"></i>
+                    <!-- Dropdown Items -->
                     <ul class="dropdown">
-                        <li class="dropdown-item"><a href="/pages/menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
-                        <li class="dropdown-item"><a href="/pages/menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
-                        <li class="dropdown-item"><a href="/pages/menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
-                        <li class="dropdown-item"><a href="/pages/menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
-                        <li class="dropdown-item"><a href="/pages/menu.html#kiddies-meal" class="dropdown-link">🧸 Kiddies Meal</a></li>
-                        <li class="dropdown-item"><a href="/pages/menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
+                        <li class="dropdown-item"><a href="pages/menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
+                        <li class="dropdown-item"><a href="pages/menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
+                        <li class="dropdown-item"><a href="pages/menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
+                        <li class="dropdown-item"><a href="pages/menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
+                        <li class="dropdown-item"><a href="pages/menu.html#kiddies-meal" class="dropdown-link">🧸 Kiddies Meal</a></li>
+                        <li class="dropdown-item"><a href="pages/menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/pages/about.html" class="nav-link">About</a>
+                    <a href="pages/about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/pages/products.html" class="nav-link">Products</a>
+                    <a href="pages/products.html" class="nav-link">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/pages/contact.html" class="nav-link">Contact</a>
+                    <a href="pages/contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
 
             <div class="nav-right">
-                <a href="/pages/cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
-                <a href="/pages/menu.html" class="order-btn">Order Now</a>
-                <button class="mobile-menu-toggle">
+                <a href="pages/cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+                <a href="pages/menu.html" class="order-btn">Order Now</a>
+                <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -156,7 +157,7 @@
             <div class="container">
                 <h2>What Our Customers Say</h2>
                 <div class="reviews-container">
-                    <div class="review-card">
+                    <figure class="review-card">
                         <div class="review-stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -164,9 +165,11 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="review-text">"Best coffee in town! The atmosphere is so cozy and welcoming."</p>
-                        <p class="review-author">- Thembinkosi Matambo</p>
-                    </div>
+                        <blockquote class="review-text">
+                           <p>"Best coffee in town! The atmosphere is so cozy and welcoming."</p>
+                        </blockquote>
+                        <figcaption class="review-author">- Thembinkosi Matambo</figcaption>
+                    </figure>
                     <div class="review-card">
                         <div class="review-stars">
                             <i class="fas fa-star"></i>
@@ -204,7 +207,7 @@
                             </div>
                         </div>
                         <div class="location-cta">
-                            <a href="./pages/contact.html" class="btn btn-primary">Get Directions</a>
+                            <a href="pages/contact.html" class="btn btn-primary">Get Directions</a>
                         </div>
                     </div>
                     <div class="location-map">
@@ -215,8 +218,9 @@
                            style="border:0;"
                            allowfullscreen=""
                            loading="lazy"
-                           referrerpolicy="no-referrer-when-downgrade">
-                           </iframe>
+                           referrerpolicy="no-referrer-when-downgrade"
+                           title="Google Map showing The Cafe location at Trinity Square, Gateshead">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -253,7 +257,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 The Cafe. All rights reserved.</p>
+                    <p>&copy; 2026 The Cafe. All rights reserved.</p>
                 </div>
             </div>
         </footer>

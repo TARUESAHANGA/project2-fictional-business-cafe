@@ -266,3 +266,44 @@ function addToCart(name, price) {
         setTimeout(() => message.remove(), 3000);
     }
 }
+
+function addToCart(id, name, price) {
+    // Get existing cart
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if item exists
+    const existingItem = cart.find(item => item.id === id);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1,
+        });
+    }
+    
+    // Save cart
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Update badge
+    updateCartBadge();
+    
+    // Show success message
+    showNotification(`${name} added to cart!`);
+}
+
+function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = document.querySelector('.cart-badge');
+    if (badge) {
+        badge.textContent = totalItems;
+        badge.style.display = totalItems > 0 ? 'flex' : 'none';
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', updateCartBadge);

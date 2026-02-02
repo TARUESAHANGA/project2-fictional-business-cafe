@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-    <body>
         <a href="#main" class="skip-link">Skip to main content</a>
     
         <!-- Navigation -->
@@ -31,7 +30,7 @@
                     <li class="nav-item">
                         <a href="../index.html" class="nav-link active">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="menu.html" class="nav-link">Menu</a>
                         <i class="fa-solid fa-chevron-down"></i>
                         <ul class="dropdown">
@@ -40,7 +39,7 @@
                             <li class="dropdown-item"><a href="menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
                             <li class="dropdown-item"><a href="menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
                             <li class="dropdown-item"><a href="menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
-                            <li class="dropdown-item"><a href="menu.html#kiddies-meal" class="dropdown-link">🍳 Kiddies Meal</a></li>
+                            <li class="dropdown-item"><a href="menu.html#kiddies" class="dropdown-link">🧸 Kiddies Meal</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -55,29 +54,27 @@
                 </ul>
     
                 <div class="nav-right">
-                    <a href="#search" class="nav-icon"><i class="fas fa-search"></i></a>
                     <a href="cart.html" class="nav-icon">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-badge">0</span>
                     </a>
                     <a href="menu.html" class="order-btn">Order Now</a>
-                    <button class="mobile-menu-toggle">
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                 </div>
-               
- 
             </div>
         </nav>
+
         <!-- Main Content -->
         <main id="main" class="main-container">  
             
             <!-- Mobile Quick Menu Dropdown -->
             <div class="mobile-quick-menu">
-                <label for="quick-nav" class="visually-hidden">Quick Menu Navigation</label>
-                <select id="quick-nav" class="quick-nav-select" onchange="location = this.value;">
+                <label for="quick-nav" class="visually-hidden">Quick Menu</label>
+                <select id="quick-nav" class="quick-nav-select" onchange="if(this.value) location .href= this.value;">
                     <option value="" selected disabled>☰ Quick Menu Access</option>
                     <optgroup label="Menu Categories">
                         <option value="menu.html#coffee">☕ Coffee & Espresso</option>
@@ -85,15 +82,21 @@
                         <option value="menu.html#pastries">🥐 Fresh Pastries</option>
                         <option value="menu.html#lunch">🥪 Lunch & Light Bites</option>
                         <option value="menu.html#desserts">🍰 Desserts</option>
-                        <option value="menu.html#kiddies-meal">🍳 Kiddies Meal</option>
+                        <option value="menu.html#kiddies">🧸 Kiddies Meal</option>
                     </optgroup>
-
                 </select>
             </div>
             
             <!-- Sidebar Menu Tabs -->
             <div class="menu-sidebar">
-           
+                <!-- Search form -->
+                <form action="#" class="search-form" role="search" onsubmit="return false;">
+                    <span class="material-symbols-rounded">
+                        Search
+                    </span>
+                    <input id="menu-search" type="search" placeholder="Search menu..." aria-label="Search menu items">
+                </form>
+
                 <aside class="menu-nav" id="menu-nav">
                     <div class="menu-nav-container">
                        
@@ -1100,15 +1103,14 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 The Cafe. All rights reserved.</p>
+                    <p>&copy; 2026 The Cafe. All rights reserved.</p>
                 </div>
             </div>
         </footer>
 
-        <script src="/assets/js/main.js"></script>
+        <script src="../assets/js/main.js"></script>
         <script src="../assets/js/menu.js"></script>
         <script src="../assets/js/cart.js"></script>
         <script src="../assets/js/menu-cart.js"></script>
-    </body>
 </body>
 </html>

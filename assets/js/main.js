@@ -317,6 +317,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== Additional CSS for Active Page Highlighting =====
 const additionalStyles = `
+    .search-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        backdrop-filter: blur(5px);
+    }
+
+    .search-modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+    }
+
+    .close-search {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #666;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
 
     .search-result-item {
         padding: 0.5rem;
@@ -413,7 +453,7 @@ const additionalStyles = `
     /* Menu tab active state (for menu page) */
     .menu-tab.active {
         background: var(--primary-brown) !important;
-        color: caramel !important;
+        color: cara !important;
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
     }

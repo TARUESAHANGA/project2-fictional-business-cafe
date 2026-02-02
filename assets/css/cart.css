@@ -223,6 +223,8 @@ img {
     gap: var(--spacing-sm);
 }
 
+
+
 .quantity-btn {
     width: 30px;
     height: 30px;

@@ -379,6 +379,44 @@ main {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Cart Icon with Badge */
+.cart-icon {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: none; /* Hidden when empty */
+}
+
+.cart-badge:not(:empty) {
+    display: flex;
+}
+
+/* Dropdown Toggle Icon */
+.dropdown-toggle {
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+    transition: transform 0.3s ease;
+}
+
+.has-dropdown.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
+
 /* Animations */
 @keyframes fadeInLeft {
     from {

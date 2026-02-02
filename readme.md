@@ -84,68 +84,67 @@ Storage: LocalStorage for cart persistence across sessions
 No Frameworks: Pure vanilla JavaScript implementation
 
 ## 🎨 Pages Overview
-🏠 Homepage (index.html)
+### 🏠 Homepage (index.html)
 Hero section with cafe branding
 Featured menu items
 Customer reviews
 Location/map section
 Call-to-action buttons
 
-##📋 Menu (pages/menu.html)
+### 📋 Menu (pages/menu.html)
 Category Navigation: Breakfast, Lunch, Dinner, Kiddies Meal, Beverages, Specials
 Search Functionality: Filter items by name or category
 Add to Cart: Direct ordering from menu items
 Responsive Design: Mobile-friendly category tabs and quick access dropdown
 
-## 🛍️ Products (pages/products.html)
+### 🛍️ Products (pages/products.html)
 Product showcase with images
 Add to cart functionality
 Product categories and filtering
 
-## 👤 About (pages/about.html)
+### 👤 About (pages/about.html)
 Developer portfolio section
 Skills showcase (HTML, CSS, JavaScript, Git/GitHub)
 Featured projects gallery
 Professional story and background
 
-## 📞 Contact (pages/contact.html)
+### 📞 Contact (pages/contact.html)
 Contact information form
-Business hours
 Location details
 Social media links
 
-## 🛒 Cart (pages/cart.html)
-Shopping Cart Features:
-Add/remove items
-Quantity adjustment (+/-)
-Real-time price calculations
-Order summary with total
-Persistent storage (survives page refresh)
-Checkout process simulation
+### 🛒 Cart (pages/cart.html)
+###### Shopping Cart Features:
+- Add/remove items
+- Quantity adjustment (+/-)
+- Real-time price calculations
+- Order summary with total
+- Persistent storage (survives page refresh)
+- Checkout process simulation
 
-## 🔧 Key Features Breakdown
-Navigation System
-Multi-level Dropdown Menu: Smooth CSS animations for desktop
-Mobile Hamburger Menu: Touch-friendly controls with ARIA support
-Active Page Highlighting: Visual indicator for current page in nav
-Quick Access Dropdown: Native select element for mobile menu navigation
-Shopping Cart Integration: Real-time cart icon updates across all pages
+### 🔧 Key Features Breakdown
+#### Navigation System
+* Multi-level Dropdown Menu: Smooth CSS animations for desktop
+* Mobile Hamburger Menu: Touch-friendly controls with ARIA support
+* Active Page Highlighting: Visual indicator for current page in nav
+* Quick Access Dropdown: Native select element for mobile menu navigation
+* Shopping Cart Integration: Real-time cart icon updates across all pages
 
-## 📱 Mobile Features
+### 📱 Mobile Features
 Native select dropdown for quick menu access on small screens (≤400px)
 Responsive images that scale with container width
 Smooth scrolling for anchor links
 Collapsible hamburger menu for space efficiency
 Stacked layout optimization for touch interactions
 
-## Menu Categories
-☕ Coffee & Espresso
-🍵 Tea & Beverages
-🥐 Fresh Pastries
-🥪 Lunch & Light Bites
-🍰 Desserts
-🍳 Kiddies Meal
-⭐ Daily Specials
+### Menu Categories
+1. ☕ Coffee & Espresso
+2. 🍵 Tea & Beverages
+3. 🥐 Fresh Pastries
+4. 🥪 Lunch & Light Bites
+5. 🍰 Desserts
+6. 🍳 Kiddies Meal
+7. ⭐ Daily Specials
 
 ## 🛠️ Browser Support
 ✅ Chrome (latest)
@@ -154,18 +153,23 @@ Stacked layout optimization for touch interactions
 ✅ Edge (latest)
 ✅ Mobile browsers (iOS Safari, Chrome Android)
 
-##🎓 Learning Opportunities
+### 🎓 Learning Opportunities
 This project demonstrates:
-HTML5 Semantic Structure - Proper use of <header>, <nav>, <main>, <section>, <footer>
-CSS Grid & Flexbox - Modern layout techniques
-CSS Custom Properties - Variable usage for consistent theming
-JavaScript DOM Manipulation - Dynamic content updates
-Event Handling - Click, scroll, resize, and input events
-Local Storage API - Cart data persistence across sessions
-Responsive Design - Mobile-first approach with progressive enhancement
-Accessibility - ARIA labels, skip links, keyboard navigation, focus management
+HTML5 Semantic Structure - Proper use of the following tags
+- header 
+- nav
+- main 
+- section 
+- footer
+- CSS Grid & Flexbox - Modern layout techniques
+- CSS Custom Properties - Variable usage for consistent theming
+- JavaScript DOM Manipulation - Dynamic content updates
+- Event Handling - Click, scroll, resize, and input events
+- Local Storage API - Cart data persistence across sessions
+- Responsive Design - Mobile-first approach with progressive enhancement
+- Accessibility - ARIA labels, skip links, keyboard navigation, focus management
 
-## 🗺️ Roadmap
+### 🗺️ Roadmap
 Future enhancements planned:
 [ ] User authentication system
 [ ] Online payment integration (Stripe/PayPal)
@@ -175,7 +179,7 @@ Future enhancements planned:
 [ ] Dark mode toggle
 [ ] Multi-language support
 
-## 🤝 Contributing
+### 🤝 Contributing
 Feel free to fork this project and submit pull requests for improvements:
 Bug fixes
 Additional features
@@ -185,14 +189,15 @@ Accessibility enhancements
 📄 License
 This project is open source and available under the MIT License.
 
-## 🙏 Credits
+### 🙏 Credits
 Developer: Tarumbidzwa Sahanga - Frontend Web Developer
 Location: Gateshead, Tyne and Wear, England
 Fonts: Google Fonts (Jost)
 Icons: Font Awesome
 Images: Placeholder images from placeholder.com
 Color Scheme: Inspired by modern cafe aesthetics
-📞 Support
+
+### 📞 Support
 For questions or issues:
 Create an issue in the repository
 Check existing issues for solutions

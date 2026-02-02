@@ -5,355 +5,366 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cafe - Products Page</title>
     <!-- Linking Stylesheets -->
-     <link rel="stylesheet" href="/assets/css/normalize.css">
-     <link rel="stylesheet" href="/assets/css/styles.css">
-     <link rel="stylesheet" href="/assets/css/products.css">
-     <link rel="stylesheet" href="/assets/css/mediaQueries-400.css">
-     <link rel="stylesheet" href="/assets/css/mediaQueries-600.css">
-     <link rel="stylesheet" href="/assets/css/mediaQueries-920.css">
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/products.css">
+    <link rel="stylesheet" href="../assets/css/mediaQueries-400.css">
+    <link rel="stylesheet" href="../assets/css/mediaQueries-600.css">
+    <link rel="stylesheet" href="../assets/css/mediaQueries-920.css">
     <!-- Linking Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
     <!-- Linking Font Awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <body>
-        <a href="#main" class="skip-link">Skip to main content</a>
-    
-        <!-- Navigation -->
-        <nav>
-            <div class="nav-container">
-                <a href="../index.html" class="nav-logo"><i class="fas fa-coffee"></i>The Cafe</a>
-            
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="menu.html" class="nav-link">Menu</a>
-                        <i class="fa-solid fa-chevron-down"></i>
-                        <ul class="dropdown">
-                            <li class="dropdown-item"><a href="/pages/menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
-                            <li class="dropdown-item"><a href="/pages/menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
-                            <li class="dropdown-item"><a href="/pages/menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
-                            <li class="dropdown-item"><a href="/pages/menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
-                            <li class="dropdown-item"><a href="/pages/menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
-                            <li class="dropdown-item"><a href="/pages/menu.html#kiddies-meal" class="dropdown-link">🍳 Kiddies Meal</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/pages/about.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/pages/products.html" class="nav-link">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/pages/contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-    
-                <div class="nav-right">
-                    <a href="/pages/cart.html" class="cart-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-badge">0</span>
-                    </a>
-                    <a href="/pages/menu.html" class="order-btn">Order Now</a>
-                    <button class="mobile-menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-               
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><i class="fas fa-coffee"></i>The Cafe</a>
+        
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                    <i class="fa-solid fa-chevron-down dropdown-toggle"></i>
+                    <ul class="dropdown">
+                        <li class="dropdown-item"><a href="./menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#breakfast" class="dropdown-link">🍳 Breakfast</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#kiddies" class="dropdown-link">🧸 Kiddies Meal</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="./about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./products.html" class="nav-link active" aria-current="page">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="./cart.html" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <a href="./menu.html" class="order-btn">Order Now</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-        </nav>
-    
-        <main id="main">
-            <!-- PRODUCTS SECTION -->
-            <section class="products-section">
-                <div class="products-container">
-                    <div class="section-header">
-                        <h2>Our Products</h2>
-                        <p>Discover our premium coffee blends, delicious pastries, and exclusive merchandise</p>
-                    </div>
-    
-                
-                    <!-- Products Grid -->
-                    <div class="products-grid">
-                        <!-- Coffee Products -->
-                        <div class="product-card" data-category="coffee">
-                            <div class="product-image">
-                                <i class="fas fa-coffee"></i>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="product-title">Premium Coffee Beans</h3>
-                                <p class="product-description">Ethically sourced, artisan roasted coffee beans from around the world</p>
-                                <div class="product-tags">
-                                    <span class="product-tag">Premium</span>
-                                    <span class="product-tag">Ethically Sourced</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">4.8 (234 reviews)</span>
-                                </div>
-                                <div class="product-price">£24.99</div>
-                                <button class="add-to-cart-btn" onclick="addToCart('Premium Coffee Beans', '£24.99')">Add to Cart</button>
-                            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Products Section -->
+        <section class="products-section" aria-labelledby="products-heading">
+            <div class="products-container">
+                <div class="section-header">
+                    <h1 id="products-heading">Our Products</h1>
+                    <p>Discover our premium coffee blends, delicious pastries, and exclusive merchandise</p>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid">
+                    <!-- Coffee Products -->
+                    <article class="product-card" data-id="prod-001" data-name="Premium Coffee Beans" data-price="24.99" data-category="coffee">
+                        <div class="product-image">
+                            <i class="fas fa-coffee" aria-hidden="true"></i>
                         </div>
-        
-                        <!-- Pastry Products -->
-                        <div class="product-card" data-category="pastries">
-                            <div class="product-image">
-                                <i class="fa-solid fa-croissant"></i>
+                        <div class="product-content">
+                            <h3 class="product-title">Premium Coffee Beans</h3>
+                            <p class="product-description">Ethically sourced, artisan roasted coffee beans from around the world</p>
+                            <div class="product-tags">
+                                <span class="product-tag">Premium</span>
+                                <span class="product-tag">Ethically Sourced</span>
                             </div>
-                            <div class="product-content">
-                                <h3 class="product-title">Artisan Pastry Box</h3>
-                                <p class="product-description">Freshly baked croissants, pain au chocolat, and seasonal pastries</p>
-                                <div class="product-tags">
-                                    <span class="product-tag">Fresh</span>
-                                    <span class="product-tag">Seasonal</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">4.6 (189 reviews)</span>
-                                </div>
-                                <div class="product-price">£18.99</div>
-                                <button class="add-to-cart-btn" onclick="addToCart('Artisan Pastry Box', '£18.99')">Add to Cart</button>
-                            </div>
-                        </div>
-        
-                        <!-- Merchandise -->
-                        <div class="product-card" data-category="merchandise">
-                            <div class="product-image">
-                                <i class="fas fa-mug-hot"></i>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="product-title">Magic Corner Mug</h3>
-                                <p class="product-description">Premium ceramic mug with our signature logo - perfect for your morning coffee</p>
-                                <div class="product-tags">
-                                    <span class="product-tag">Ceramic</span>
-                                    <span class="product-tag">Dishwasher Safe</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">4.9 (456 reviews)</span>
-                                </div>
-                                <div class="product-price">£16.99</div>
-                                <button class="add-to-cart-btn" onclick="addToCart('Magic Corner Mug', '£16.99')">Add to Cart</button>
-                            </div>
-                        </div>
-        
-                        <!-- Gift Box -->
-                        <div class="product-card" data-category="gifts">
-                            <div class="product-image">
-                                <i class="fas fa-gift"></i>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="product-title">Gift Box Set</h3>
-                                <p class="product-description">Curated selection of our best products - perfect for coffee lovers</p>
-                                <div class="product-tags">
-                                    <span class="product-tag">Gift</span>
-                                    <span class="product-tag">Curated</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">4.7 (312 reviews)</span>
-                                </div>
-                                <div class="product-price">£45.99</div>
-                                <button class="add-to-cart-btn" onclick="addToCart('Gift Box Set', '£45.99')">Add to Cart</button>
-                            </div>
-                        </div>
-        
-                        <!-- Coffee Grinder -->
-                        <div class="product-card" data-category="merchandise">
-                            <div class="product-image">
-                                <i class="fas fa-blender"></i>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="product-title">Premium Coffee Grinder</h3>
-                                <p class="product-description">Professional-grade burr grinder for perfect coffee every time</p>
-                                <div class="product-tags">
-                                    <span class="product-tag">Professional</span>
-                                    <span class="product-tag">Burr Grinder</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">4.5 (167 reviews)</span>
-                                </div>
-                                <div class="product-price">£89.99</div>
-                                <button class="add-to-cart-btn" onclick="addToCart('Premium Coffee Grinder', '£89.99')">Add to Cart</button>
-                            </div>
-                        </div>
-        
-                        <!-- Tea Selection -->
-                        <div class="product-card" data-category="gifts">
-                            <div class="product-image">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="product-title">Premium Tea Collection</h3>
-                                <p class="product-description">Curated selection of premium teas from around the world</p>
-                                <div class="product-tags">
-                                    <span class="product-tag">Premium</span>
-                                    <span class="product-tag">Worldwide</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="rating-text">4.8 (203 reviews)</span>
-                                </div>
-                                <div class="product-price">£32.99</div>
-                                <button class="add-to-cart-btn" onclick="addToCart('Premium Tea Collection', '£32.99')">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Special Offers -->
-                    <div class="special-offers">
-                        <h2>Limited Time Offers</h2>
-                        <p>Don't miss these exclusive deals!</p>
-                        <div class="offers-grid">
-                            <div class="offer-card">
-                                <h3 class="offer-title">Coffee Lover's Bundle</h3>
-                                <p class="offer-description">3 bags of premium coffee + free mug</p>
-                                <div class="offer-price">£59.99</div>
-                                <div class="offer-timer">⏰ 23:45:12</div>
-                            </div>
-                            <div class="offer-card">
-                                <h3 class="offer-title">Breakfast Combo</h3>
-                                <p class="offer-description">Coffee + pastry + juice</p>
-                                <div class="offer-price">£12.99</div>
-                                <div class="offer-timer">⏰ 15:30:45</div>
-                            </div>
-                            <div class="offer-card">
-                                <h3 class="offer-title">Gift Set Special</h3>
-                                <p class="offer-description">Complete gift package with wrapping</p>
-                                <div class="offer-price">£79.99</div>
-                                <div class="offer-timer">⏰ 08:15:30</div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Featured Products -->
-                    <div class="featured-products">
-                        <div class="section-header">
-                            <h2>Featured Products</h2>
-                            <p>Our most popular items that customers love</p>
-                        </div>
-                        <div class="featured-grid">
-                            <div class="featured-card">
-                                <div class="featured-image">
+                            <div class="product-rating">
+                                <div class="stars" aria-label="4.8 out of 5 stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <div class="featured-content">
-                                    <h3>Barista's Choice Bundle</h3>
-                                    <p>Everything you need to make café-quality coffee at home</p>
-                                    <div class="featured-price">£149.99</div>
-                                    <button class="add-to-cart-btn">Add to Cart</button>
-                                </div>
+                                <span class="rating-text">4.8 (234 reviews)</span>
                             </div>
-                            <div class="featured-card">
-                                <div class="featured-image">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                <div class="featured-content">
-                                    <h3>Monthly Subscription</h3>
-                                    <p>Fresh coffee delivered to your door every month</p>
-                                    <div class="featured-price">£29.99/month</div>
-                                    <button class="add-to-cart-btn">Subscribe</button>
-                                </div>
-                            </div>
+                            <div class="product-price">£24.99</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('prod-001', 'Premium Coffee Beans', 24.99)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
                         </div>
-                    </div>
-        
-                    <!-- Call to Action -->
-                    <div class="cta-section">
-                        <div class="cta-content">
-                            <h2>Join Our Coffee Club</h2>
-                            <p>Get exclusive discounts, early access to new products, and special member benefits</p>
-                            <a href="#" class="cta-button">Join Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    
-    
+                    </article>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>The Cafe</h3>
-                        <p>Serving our community with love, one cup at a time.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                    <!-- Pastry Products -->
+                    <article class="product-card" data-id="prod-002" data-name="Artisan Pastry Box" data-price="18.99" data-category="pastries">
+                        <div class="product-image">
+                            <i class="fa-solid fa-croissant" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Artisan Pastry Box</h3>
+                            <p class="product-description">Freshly baked croissants, pain au chocolat, and seasonal pastries</p>
+                            <div class="product-tags">
+                                <span class="product-tag">Fresh</span>
+                                <span class="product-tag">Seasonal</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars" aria-label="4.6 out of 5 stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.6 (189 reviews)</span>
+                            </div>
+                            <div class="product-price">£18.99</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('prod-002', 'Artisan Pastry Box', 18.99)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Merchandise -->
+                    <article class="product-card" data-id="prod-003" data-name="Magic Corner Mug" data-price="16.99" data-category="merchandise">
+                        <div class="product-image">
+                            <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Magic Corner Mug</h3>
+                            <p class="product-description">Premium ceramic mug with our signature logo - perfect for your morning coffee</p>
+                            <div class="product-tags">
+                                <span class="product-tag">Ceramic</span>
+                                <span class="product-tag">Dishwasher Safe</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars" aria-label="4.9 out of 5 stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.9 (456 reviews)</span>
+                            </div>
+                            <div class="product-price">£16.99</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('prod-003', 'Magic Corner Mug', 16.99)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Gift Box -->
+                    <article class="product-card" data-id="prod-004" data-name="Gift Box Set" data-price="45.99" data-category="gifts">
+                        <div class="product-image">
+                            <i class="fas fa-gift" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Gift Box Set</h3>
+                            <p class="product-description">Curated selection of our best products - perfect for coffee lovers</p>
+                            <div class="product-tags">
+                                <span class="product-tag">Gift</span>
+                                <span class="product-tag">Curated</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars" aria-label="4.7 out of 5 stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.7 (312 reviews)</span>
+                            </div>
+                            <div class="product-price">£45.99</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('prod-004', 'Gift Box Set', 45.99)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Coffee Grinder -->
+                    <article class="product-card" data-id="prod-005" data-name="Premium Coffee Grinder" data-price="89.99" data-category="merchandise">
+                        <div class="product-image">
+                            <i class="fas fa-blender" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Premium Coffee Grinder</h3>
+                            <p class="product-description">Professional-grade burr grinder for perfect coffee every time</p>
+                            <div class="product-tags">
+                                <span class="product-tag">Professional</span>
+                                <span class="product-tag">Burr Grinder</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars" aria-label="4.5 out of 5 stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.5 (167 reviews)</span>
+                            </div>
+                            <div class="product-price">£89.99</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('prod-005', 'Premium Coffee Grinder', 89.99)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Tea Selection -->
+                    <article class="product-card" data-id="prod-006" data-name="Premium Tea Collection" data-price="32.99" data-category="gifts">
+                        <div class="product-image">
+                            <i class="fas fa-leaf" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Premium Tea Collection</h3>
+                            <p class="product-description">Curated selection of premium teas from around the world</p>
+                            <div class="product-tags">
+                                <span class="product-tag">Premium</span>
+                                <span class="product-tag">Worldwide</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars" aria-label="4.8 out of 5 stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.8 (203 reviews)</span>
+                            </div>
+                            <div class="product-price">£32.99</div>
+                            <button class="add-to-cart-btn" onclick="addToCart('prod-006', 'Premium Tea Collection', 32.99)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Special Offers -->
+                <div class="special-offers" aria-labelledby="offers-heading">
+                    <h2 id="offers-heading">Limited Time Offers</h2>
+                    <p>Don't miss these exclusive deals!</p>
+                    <div class="offers-grid">
+                        <div class="offer-card">
+                            <h3 class="offer-title">Coffee Lover's Bundle</h3>
+                            <p class="offer-description">3 bags of premium coffee + free mug</p>
+                            <div class="offer-price">£59.99</div>
+                            <div class="offer-timer" role="timer" aria-label="Time remaining">⏰ 23:45:12</div>
+                        </div>
+                        <div class="offer-card">
+                            <h3 class="offer-title">Breakfast Combo</h3>
+                            <p class="offer-description">Coffee + pastry + juice</p>
+                            <div class="offer-price">£12.99</div>
+                            <div class="offer-timer" role="timer" aria-label="Time remaining">⏰ 15:30:45</div>
+                        </div>
+                        <div class="offer-card">
+                            <h3 class="offer-title">Gift Set Special</h3>
+                            <p class="offer-description">Complete gift package with wrapping</p>
+                            <div class="offer-price">£79.99</div>
+                            <div class="offer-timer" role="timer" aria-label="Time remaining">⏰ 08:15:30</div>
                         </div>
                     </div>
-                    <div class="footer-section">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="menu.html">Menu</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                </div>
+
+                <!-- Featured Products -->
+                <div class="featured-products" aria-labelledby="featured-heading">
+                    <div class="section-header">
+                        <h2 id="featured-heading">Featured Products</h2>
+                        <p>Our most popular items that customers love</p>
                     </div>
-                    <div class="footer-section">
-                        <h3>Hours</h3>
-                        <p>Monday-Friday: 7am-7pm</p>
-                        <p>Saturday-Sunday: 8am-6pm</p>
-                        <p>Holiday hours may vary</p>
+                    <div class="featured-grid">
+                        <article class="featured-card" data-id="prod-007" data-name="Barista's Choice Bundle" data-price="149.99">
+                            <div class="featured-image">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div class="featured-content">
+                                <h3>Barista's Choice Bundle</h3>
+                                <p>Everything you need to make café-quality coffee at home</p>
+                                <div class="featured-price">£149.99</div>
+                                <button class="add-to-cart-btn" onclick="addToCart('prod-007', 'Barista\'s Choice Bundle', 149.99)">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </article>
+                        <article class="featured-card" data-id="prod-008" data-name="Monthly Subscription" data-price="29.99">
+                            <div class="featured-image">
+                                <i class="fas fa-calendar" aria-hidden="true"></i>
+                            </div>
+                            <div class="featured-content">
+                                <h3>Monthly Subscription</h3>
+                                <p>Fresh coffee delivered to your door every month</p>
+                                <div class="featured-price">£29.99/month</div>
+                                <button class="add-to-cart-btn" onclick="addToCart('prod-008', 'Monthly Subscription', 29.99)">
+                                    <i class="fas fa-cart-plus"></i> Subscribe
+                                </button>
+                            </div>
+                        </article>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 The Cafe. All rights reserved.</p>
+
+                <!-- Call to Action -->
+                <div class="cta-section" aria-labelledby="cta-heading">
+                    <div class="cta-content">
+                        <h2 id="cta-heading">Join Our Coffee Club</h2>
+                        <p>Get exclusive discounts, early access to new products, and special member benefits</p>
+                        <a href="#" class="cta-button">Join Now</a>
+                    </div>
                 </div>
             </div>
-        </footer>
-    
-        <script src="../assets/js/main.js"></script>
-        <script src="../assets/js/cart.js"></script>
-        <script src="../assets/js/products.js"></script>
-    </body>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Cafe</h3>
+                    <p>Serving our community with love, one cup at a time.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="./menu.html">Menu</a></li>
+                        <li><a href="./products.html" aria-current="page">Products</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday-Friday: 7am-7pm</p>
+                    <p>Saturday-Sunday: 8am-6pm</p>
+                    <p>Holiday hours may vary</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Cafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/products.js"></script>
 </body>
 </html>

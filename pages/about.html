@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cafe - About Page</title>
     <!-- Linking Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/about.css">
-    <link rel="stylesheet" href="/assets/css/mediaQueries-400.css">
-    <link rel="stylesheet" href="/assets/css/mediaQueries-600.css">
-    <link rel="stylesheet" href="/assets/css/mediaQueries-920.css">
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../assets/css/mediaQueries-400.css">
+    <link rel="stylesheet" href="../assets/css/mediaQueries-600.css">
+    <link rel="stylesheet" href="../assets/css/mediaQueries-920.css">
     <!-- Linking Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
     <!-- Linking Font Awesome -->
@@ -28,32 +28,36 @@
                 <li class="nav-item">
                     <a href="../index.html" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/pages/menu.html" class="nav-link">Menu</a>
-                    <i class="fa-solid fa-chevron-down"></i>
+                <li class="nav-item has-dropdown">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                    <i class="fa-solid fa-chevron-down dropdown-toggle"></i>
                     <ul class="dropdown">
-                        <li class="dropdown-item"><a href="menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
-                        <li class="dropdown-item"><a href="menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
-                        <li class="dropdown-item"><a href="menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
-                        <li class="dropdown-item"><a href="menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
-                        <li class="dropdown-item"><a href="menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
-                        <li class="dropdown-item"><a href="menu.html#kiddies-meal" class="dropdown-link">🍳 Kiddies Meal</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#breakfast" class="dropdown-link">🍳 Breakfast</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#kiddies" class="dropdown-link">🧸 Kiddies Meal</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/pages/about.html" class="nav-link active">About</a>
+                    <a href="./about.html" class="nav-link active" aria-current="page">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/pages/products.html" class="nav-link">Products</a>
+                    <a href="./products.html" class="nav-link">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/pages/contact.html" class="nav-link">Contact</a>
+                    <a href="./contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
 
             <div class="nav-right">
-                <a href="/pages/cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
-                <a href="/pages/menu.html" class="order-btn">Order Now</a>
+                <a href="./cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <a href="./menu.html" class="order-btn">Order Now</a>
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
                     <span></span>
                     <span></span>
@@ -61,17 +65,15 @@
                 </button>
             </div>
         </div>
-        
-
     </nav>
 
     <main id="main" class="about-content">
         <div class="about-container">
             
             <!-- My Story Section -->
-            <section class="story-section">
+            <section class="story-section" aria-labelledby="story-heading">
                 <div class="story-text">
-                    <h2>My Story</h2>
+                    <h1 id="story-heading">My Story</h1>
                     <p>I'm a dedicated and curious developer who approaches every project with clarity, intention, and a strong focus on growth. I enjoy building interactive, user-friendly experiences with modern web technologies and refining designs that balance function and creativity. My process is thoughtful and methodical—I ask the right questions, explore solutions deeply, and turn feedback into meaningful improvements. Whether I'm developing features, improving UI/UX, or learning new tools, I bring professionalism, attention to detail, and a genuine passion for creating work that feels polished and purposeful.</p>
                 </div>
                 <div class="story-image">
@@ -80,50 +82,50 @@
             </section>
 
             <!-- My Skills Section -->
-            <section class="skills-section">
+            <section class="skills-section" aria-labelledby="skills-heading">
                 <div class="section-header">
-                    <h2>Skills</h2>
-                    <p>Learning and Developing skills in FrontEnd Web development core principles</p>
+                    <h2 id="skills-heading">Skills</h2>
+                    <p>Learning and developing skills in FrontEnd Web development core principles</p>
                 </div>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+                        <div class="skill-icon"><i class="fa-brands fa-html5" aria-hidden="true"></i></div>
                         <h3>HyperText Markup Language</h3>
                         <p>Solid foundation and structured site</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><i class="fa-brands fa-css3"></i></div>
+                        <div class="skill-icon"><i class="fa-brands fa-css3" aria-hidden="true"></i></div>
                         <h3>Cascading Style Sheets</h3>
                         <p>Styling sites making them attractive and user friendly and accessible on all screens.</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
-                        <h3>JAVASCRIPT</h3>
+                        <div class="skill-icon"><i class="fa-brands fa-js" aria-hidden="true"></i></div>
+                        <h3>JavaScript</h3>
                         <p>Bringing interactivity with the user</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><i class="fa-brands fa-git"></i></div>
-                        <h3>GIT & Github</h3>
-                        <p><strong>GIT</strong> tracking and managing code changes.<br><strong>Github</strong> hosting repositories for collaboration.</p>
+                        <div class="skill-icon"><i class="fa-brands fa-git" aria-hidden="true"></i></div>
+                        <h3>Git & GitHub</h3>
+                        <p><strong>Git</strong> tracking and managing code changes.<br><strong>GitHub</strong> hosting repositories for collaboration.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Projects Section -->
-            <section class="projects">
+            <section class="projects" aria-labelledby="projects-heading">
                 <div class="container">
-                    <h2 class="section-title">Featured Projects</h2>
+                    <h2 id="projects-heading" class="section-title">Featured Projects</h2>
                     <p class="section-subtitle">Showcasing my latest work and achievements</p>
                     
                     <div class="projects-grid">
-                        <div class="project-card">
+                        <article class="project-card">
                             <div class="project-image">
-                                <img src="https://placehold.co/300" alt="Cafe website project" onerror="this.src='https://placehold.co/300x200/cccccc/666666?text=Cafe+Website'">
+                                <img src="https://placehold.co/300" alt="Cafe website project preview" onerror="this.src='https://placehold.co/300x200/cccccc/666666?text=Cafe+Website'">
                                 <div class="project-overlay">
-                                    <a href="https://github.com/TARUESAHANGA/project2-fictional-business-cafe" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/TARUESAHANGA/project2-fictional-business-cafe" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View live site">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
-                                    <a href="https://github.com/TARUESAHANGA/project2-fictional-business-cafe" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/TARUESAHANGA/project2-fictional-business-cafe" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View GitHub repository">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
@@ -137,14 +139,14 @@
                                     <span class="tech-tag">JavaScript</span>
                                 </div>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="project-card">
+                        <article class="project-card">
                             <div class="project-image">
                                 <img src="https://placehold.co/300" alt="Project 2 placeholder" onerror="this.src='https://placehold.co/300x200/cccccc/666666?text=Project+2'">
                                 <div class="project-overlay">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                    <a href="#" class="project-link" aria-label="View live site (coming soon)"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link" aria-label="View GitHub repository (coming soon)"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
                             <div class="project-content">
@@ -153,17 +155,17 @@
                                 <div class="project-tech">
                                     <span class="tech-tag">HTML</span>
                                     <span class="tech-tag">CSS</span>
-                                    <span class="tech-tag">JAVASCRIPT</span>
+                                    <span class="tech-tag">JavaScript</span>
                                 </div>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="project-card">
+                        <article class="project-card">
                             <div class="project-image">
                                 <img src="https://placehold.co/300" alt="Project 3 placeholder" onerror="this.src='https://placehold.co/300x200/cccccc/666666?text=Project+3'">
                                 <div class="project-overlay">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                    <a href="#" class="project-link" aria-label="View live site (coming soon)"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link" aria-label="View GitHub repository (coming soon)"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
                             <div class="project-content">
@@ -172,24 +174,24 @@
                                 <div class="project-tech">
                                     <span class="tech-tag">HTML</span>
                                     <span class="tech-tag">CSS</span>
-                                    <span class="tech-tag">JAVASCRIPT</span>
+                                    <span class="tech-tag">JavaScript</span>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- CALL TO ACTION -->
-    <section class="cta-section">
+    <!-- Call to Action -->
+    <section class="cta-section" aria-labelledby="cta-heading">
         <div class="cta-content">
-            <h2>Take a look into my Works</h2>
+            <h2 id="cta-heading">Take a look into my Works</h2>
             <p>Get in touch today and get a well structured website.</p>
             <div class="cta-buttons">
-                <a href="https://github.com/TARUESAHANGA" class="cta-button" target="_blank" rel="noopener noreferrer">Visit My Github</a>
-                <a href="/pages/contact.html" class="cta-button secondary">Find Me</a>
+                <a href="https://github.com/TARUESAHANGA" class="cta-button" target="_blank" rel="noopener noreferrer">Visit My GitHub</a>
+                <a href="./contact.html" class="cta-button secondary">Find Me</a>
             </div>
         </div>
     </section>
@@ -202,20 +204,19 @@
                     <h3>The Cafe</h3>
                     <p>Serving our community with love, one cup at a time.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="/pages/menu.html">Menu</a></li>
-                        <li><a href="/pages/products.html">Products</a></li>
-                        <li><a href="/pages/about.html">About</a></li>
-                        <li><a href="/pages/contact.html">Contact</a></li>
-                        <li><a href="/pages/cart.html">Cart</a></li>
+                        <li><a href="./menu.html">Menu</a></li>
+                        <li><a href="./products.html">Products</a></li>
+                        <li><a href="./about.html" aria-current="page">About</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -226,11 +227,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 The Cafe. All rights reserved.</p>
+                <p>&copy; 2026 The Cafe. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/cart.js"></script>
 </body>
 </html>
