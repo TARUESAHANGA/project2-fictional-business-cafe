@@ -1,130 +1,175 @@
 // ===== Main JavaScript for The Cafe Website =====
+/* eslint-env browser */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // ===== Active Page Highlight  =====
-    function highlightActivePage() {
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.split('/').pop() || 'index.html';
-        const isInPagesFolder = currentPath.includes('/pages/');
-        
-        const navLinks = document.querySelectorAll('.nav-link, .nav-menu a');
-        
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            if (!linkHref) return;
-            
-            // Remove existing active classes
-            link.classList.remove('active');
-            
-            // Skip dropdown toggles and anchors
-            if (linkHref === '#' || linkHref.startsWith('#')) return;
-            
-            // Normalize paths for comparison
-            let normalizedLink = linkHref;
-            let normalizedCurrent = currentPage;
-            
-            // Handle paths from root (index.html)
-            if (!isInPagesFolder) {
-                // Convert ./pages/page.html to page.html for comparison
-                if (normalizedLink.startsWith('./pages/')) {
-                    normalizedLink = normalizedLink.replace('./pages/', '');
-                } else if (normalizedLink.startsWith('pages/')) {
-                    normalizedLink = normalizedLink.replace('pages/', '');
-                }
-                // Handle ./index.html
-                if (normalizedLink === './index.html') {
-                    normalizedLink = 'index.html';
-                }
-            } 
-            // Handle paths from /pages/ folder
-            else {
-                // Convert ../index.html to index.html for comparison
-                if (normalizedLink === '../index.html') {
-                    normalizedLink = 'index.html';
-                }
-                // Keep ./page.html as page.html
-                else if (normalizedLink.startsWith('./')) {
-                    normalizedLink = normalizedLink.replace('./', '');
+// ===== Active Page Highlight =====
+function highlightActivePage() {
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
+    const isInPagesFolder = currentPath.includes('/pages/');
+
+    const navLinks = document.querySelectorAll('.nav-link, .nav-menu a');
+
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (!linkHref) return;
+
+        // Remove existing active classes
+        link.classList.remove('active');
+
+        // Skip dropdown toggles and anchors
+        if (linkHref === '#' || linkHref.startsWith('#')) return;
+
+        // Resolve href to a pathname to handle absolute and relative URLs
+        let resolvedPathname;
+        try {
+            resolvedPathname = new URL(linkHref, window.location.origin).pathname;
+        } catch (e) {
+            resolvedPathname = linkHref;
+        }
+
+        // Normalize paths for comparison
+        let normalizedLink = resolvedPathname;
+        let normalizedCurrent = currentPage;
+
+        // Handle paths from root (index.html)
+        if (!isInPagesFolder) {
+            if (normalizedLink.startsWith('/pages/')) {
+                normalizedLink = normalizedLink.replace('/pages/', '');
+            } else if (normalizedLink.startsWith('pages/')) {
+                normalizedLink = normalizedLink.replace('pages/', '');
+            }
+            if (normalizedLink === '/index.html' || normalizedLink === './index.html') {
+                normalizedLink = 'index.html';
+            }
+        } else {
+            if (normalizedLink === '/index.html' || normalizedLink === '../index.html') {
+                normalizedLink = 'index.html';
+            } else if (normalizedLink.startsWith('./')) {
+                normalizedLink = normalizedLink.replace('./', '');
+            }
+        }
+
+        // Remove leading slashes
+        normalizedLink = normalizedLink.replace(/^\/+/, '');
+        normalizedCurrent = normalizedCurrent.replace(/^\/+/, '');
+
+        // Check for match
+        let isMatch = false;
+
+        if (normalizedLink === normalizedCurrent) {
+            isMatch = true;
+        } else if (
+            (normalizedCurrent === '' || normalizedCurrent === 'index.html') &&
+            (normalizedLink === 'index.html' || normalizedLink === './index.html' || normalizedLink === '../index.html')
+        ) {
+            isMatch = true;
+        }
+
+        if (isMatch) {
+            link.classList.add('active');
+
+            // If this is a dropdown item, also highlight parent
+            const dropdown = link.closest('.dropdown');
+            if (dropdown) {
+                const parentLink = dropdown.querySelector('.nav-link:not(.dropdown-link)');
+                if (parentLink) {
+                    parentLink.classList.add('active');
                 }
             }
-            
-            // Remove leading slashes for comparison
-            normalizedLink = normalizedLink.replace(/^\/+/, '');
-            normalizedCurrent = normalizedCurrent.replace(/^\/+/, '');
-            
-            // Check for match
-            let isMatch = false;
-            
-            if (normalizedLink === normalizedCurrent) {
-                isMatch = true;
-            }
-            // Handle index.html variations
-            else if ((normalizedCurrent === '' || normalizedCurrent === 'index.html') && 
-                     (normalizedLink === 'index.html' || normalizedLink === './index.html' || normalizedLink === '../index.html')) {
-                isMatch = true;
-            }
-            
-            if (isMatch) {
-                link.classList.add('active');
-                
-                // If this is a dropdown item, also highlight parent
-                const dropdown = link.closest('.dropdown');
-                if (dropdown) {
-                    const parentLink = dropdown.querySelector('.nav-link:not(.dropdown-link)');
-                    if (parentLink) {
-                        parentLink.classList.add('active');
-                    }
-                }
-            }
-        });
+        }
+    });
+}
+
+// ===== Standalone Badge Updater =====
+function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem('cafeCart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartIcon = document.querySelector('.fa-shopping-cart');
+    
+    if (!cartIcon) return;
+    
+    const cartLink = cartIcon.closest('a') || cartIcon.parentElement;
+    
+    if (!cartLink) return;
+    
+    // Remove existing badge
+    const existingBadge = cartLink.querySelector('.cart-badge');
+    if (existingBadge) existingBadge.remove();
+
+    if (totalItems > 0) {
+        const badge = document.createElement('span');
+        badge.className = 'cart-badge';
+        badge.textContent = totalItems;
+        badge.style.cssText = `
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #D4A574;
+            color: white;
+            font-size: 0.7rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        `;
+        cartLink.style.position = 'relative';
+        cartLink.style.display = 'inline-block';
+        cartLink.appendChild(badge);
     }
+}
 
-    // Call on load
-    highlightActivePage();
-
-    // ===== Mobile Menu Toggle =====
+// ===== Main Initialization =====
+document.addEventListener('DOMContentLoaded', function () {
+    // ===== Mobile Menu Elements =====
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navItems = document.querySelectorAll('.nav-item');
-
-    // Toggle mobile menu
+    
+    // ===== Mobile Menu Toggle =====
     if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function () {
             mobileMenuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            
+            if (navMenu) {
+                navMenu.classList.toggle('active');
+            }
             
             // Add overlay effect
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            document.body.style.overflow = (navMenu && navMenu.classList.contains('active')) ? 'hidden' : '';
         });
     }
-
-    // Close mobile menu when clicking on a link
+    
+    // ===== Close mobile menu when clicking on a link =====
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             if (mobileMenuToggle) {
                 mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
             }
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+            document.body.style.overflow = '';
             
             // Update active highlight after navigation
             setTimeout(highlightActivePage, 100);
         });
     });
-
+    
     // ===== Dropdown Menu Toggle for Mobile =====
     navItems.forEach(item => {
         const chevron = item.querySelector('.fa-chevron-down, .dropdown-toggle');
         const dropdown = item.querySelector('.dropdown');
         
         if (chevron && dropdown) {
-            // Click event for chevron on mobile
-            chevron.addEventListener('click', function(e) {
+            chevron.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
@@ -142,18 +187,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
+    
     // ===== Smooth Scroll for Anchor Links =====
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
     anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            
+            // Guard against missing or empty hrefs
+            if (!targetId || targetId === '#') return;
             
             e.preventDefault();
             
-            const targetSection = document.querySelector(targetId);
+            let targetSection = null;
+            try {
+                targetSection = document.querySelector(targetId);
+            } catch (err) {
+                targetSection = null;
+            }
             
             if (targetSection) {
                 targetSection.scrollIntoView({
@@ -162,13 +214,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Update URL without page jump
-                if (history.pushState) {
-                    history.pushState(null, null, targetId);
+                if (history && typeof history.pushState === 'function') {
+                    history.pushState(null, '', targetId);
                 }
             }
         });
     });
-
+    
     // ===== Active Navigation Link on Scroll =====
     function updateActiveLink() {
         const sections = document.querySelectorAll('section[id]');
@@ -217,11 +269,12 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('storage', updateCartCount);
         window.addEventListener('cartUpdated', updateCartCount);
 
-        cartIcon.parentElement.addEventListener('click', function(e) {
-            // Allow default navigation to cart page
-            // Don't prevent default - let the link work normally
-            updateCartCount();
-        });
+        const cartParent = cartIcon.closest('a') || cartIcon.parentElement;
+        if (cartParent) {
+            cartParent.addEventListener('click', function() {
+                updateCartCount();
+            });
+        }
     }
 
     // ===== Window Resize Handler =====
@@ -247,19 +300,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', handleResize);
 
-    // ===== Handle Browser Navigation (Back/Forward buttons) =====
-    window.addEventListener('popstate', function() {
-        highlightActivePage();
-    });
-
-    // ===== Loading Animation =====
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-        highlightActivePage();
-    });
-
     // ===== Initialize =====
     updateActiveLink();
+    highlightActivePage();
+    updateCartBadge();
+    
+    // Initialize cart badge from CartManager if available
+    if (typeof CartManager !== 'undefined' && CartManager.updateBadgeGlobally) {
+        CartManager.updateBadgeGlobally();
+    }
+});
+
+// ===== Handle Browser Navigation (Back/Forward buttons) =====
+window.addEventListener('popstate', highlightActivePage);
+
+// ===== Loading Animation =====
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
     highlightActivePage();
 });
 
@@ -360,60 +417,16 @@ const additionalStyles = `
 `;
 
 // Inject additional styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = additionalStyles;
-document.head.appendChild(styleSheet);
-
-//Cart badge on all pages
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize cart badge on every page
-    if (typeof CartManager !== 'undefined') {
-        CartManager.updateBadgeGlobally();
-    }
-});
-
-// Standalone badge updater for pages without cart.js
-function updateCartBadge() {
-    const cart = JSON.parse(localStorage.getItem('cafeCart')) || [];
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const cartIcon = document.querySelector('.fa-shopping-cart');
+(function injectStyles() {
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = additionalStyles;
     
-    if (cartIcon) {
-        const cartLink = cartIcon.closest('a') || cartIcon.parentElement;
-        
-        // Remove existing badge
-        const existingBadge = cartLink.querySelector('.cart-badge');
-        if (existingBadge) existingBadge.remove();
-
-        if (totalItems > 0) {
-            const badge = document.createElement('span');
-            badge.className = 'cart-badge';
-            badge.textContent = totalItems;
-            badge.style.cssText = `
-                position: absolute;
-                top: -10px;
-                right: -10px;
-                background-color: #D4A574;
-                color: white;
-                font-size: 0.7rem;
-                width: 22px;
-                height: 22px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 700;
-                z-index: 1000;
-                pointer-events: none;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-                border: 2px solid white;
-            `;
-            cartLink.style.position = 'relative';
-            cartLink.style.display = 'inline-block';
-            cartLink.appendChild(badge);
-        }
+    if (document.head) {
+        document.head.appendChild(styleSheet);
+    } else {
+        // Fallback if head isn't ready yet
+        document.addEventListener('DOMContentLoaded', function() {
+            document.head.appendChild(styleSheet);
+        });
     }
-}
-
-// Run on every page
-document.addEventListener('DOMContentLoaded', updateCartBadge);
+})();

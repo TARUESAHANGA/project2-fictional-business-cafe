@@ -1,6 +1,6 @@
-/* ===== Updated CSS Variables  ===== */
+/* ===== CSS Variables  ===== */
 :root {
-    /* Colors - Consistent Cafe Palette */
+    /* Colors */
     --primary-color: #2c1810;
     --secondary-color: #D2691E;
     --accent-color: #FF6B35;
@@ -12,8 +12,8 @@
     --bg-secondary: #F5F0E8;
     --caramel: #bf360c;
     --milk: #f5f5f5;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --shadow-lg: rgba(0, 0, 0, 0.15);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
     --white: #FFFFFF;
     
     /* Typography */

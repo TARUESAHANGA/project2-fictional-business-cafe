@@ -3,6 +3,8 @@
 class CartManager {
     constructor() {
         this.cart = this.loadCart();
+        
+        // Only get cart page elements if they exist
         this.cartItemsContainer = document.getElementById('cartItems');
         this.cartSummary = document.getElementById('cartSummary');
         this.subtotalElement = document.getElementById('subtotal');
@@ -13,15 +15,30 @@ class CartManager {
     }
 
     init() {
-        this.renderCart();
-        this.attachEventListeners();
+        // Only render cart if we're on the cart page (elements exist)
+        if (this.isCartPage()) {
+            this.renderCart();
+            this.attachEventListeners();
+        }
+        
+        // Always update cart count badge
         this.updateCartCount();
+    }
+
+    // Check if current page is the cart page
+    isCartPage() {
+        return !!(this.cartItemsContainer && this.cartSummary);
     }
 
     // Load cart from localStorage
     loadCart() {
         const savedCart = localStorage.getItem('cafeCart');
-        return savedCart ? JSON.parse(savedCart) : [];
+        try {
+            return savedCart ? JSON.parse(savedCart) : [];
+        } catch (e) {
+            console.error('Error parsing cart data:', e);
+            return [];
+        }
     }
 
     // Save cart to localStorage
@@ -33,43 +50,54 @@ class CartManager {
     // Update cart count in navigation
     updateCartCount() {
         const cartIcon = document.querySelector('.fa-shopping-cart');
-        if (cartIcon) {
-            const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (!cartIcon) return;
+        
+        const cartParent = cartIcon.closest('a') || cartIcon.parentElement;
+        if (!cartParent) return;
 
-            // Remove existing badge
-            const existingBadge = cartIcon.parentElement.querySelector('.cart-badge');
-            if (existingBadge) {
-                existingBadge.remove();
-            }
+        const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
 
-            // Add badge if items exist
-            if (totalItems > 0) {
-                const badge = document.createElement('span');
-                badge.className = 'cart-badge';
-                badge.textContent = totalItems;
-                badge.style.cssText = `
-                    position: absolute;
-                    top: -8px;
-                    right: -8px;
-                    background: var(--secondary-color);
-                    color: white;
-                    font-size: 0.75rem;
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: 600;
-                `;
-                cartIcon.parentElement.style.position = 'relative';
-                cartIcon.parentElement.appendChild(badge);
-            }
+        // Remove existing badge
+        const existingBadge = cartParent.querySelector('.cart-badge');
+        if (existingBadge) {
+            existingBadge.remove();
+        }
+
+        // Add badge if items exist
+        if (totalItems > 0) {
+            const badge = document.createElement('span');
+            badge.className = 'cart-badge';
+            badge.textContent = totalItems;
+            badge.style.cssText = `
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background: var(--secondary-color, #D4A574);
+                color: white;
+                font-size: 0.75rem;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                z-index: 1000;
+                pointer-events: none;
+            `;
+            cartParent.style.position = 'relative';
+            cartParent.style.display = 'inline-block';
+            cartParent.appendChild(badge);
         }
     }
 
     // Add item to cart (static method for use from other pages)
     static addToCart(item) {
+        if (!item || !item.id || !item.name || typeof item.price !== 'number') {
+            console.error('Invalid item data:', item);
+            return;
+        }
+
         const cart = JSON.parse(localStorage.getItem('cafeCart')) || [];
         const existingItem = cart.find(cartItem => cartItem.id === item.id);
 
@@ -80,7 +108,7 @@ class CartManager {
                 id: item.id,
                 name: item.name,
                 price: item.price,
-                image: item.image || '../assets/images/default-food.jpg',
+                image: item.image || './assets/images/default-food.jpg',
                 description: item.description || '',
                 quantity: item.quantity || 1
             });
@@ -91,10 +119,13 @@ class CartManager {
         // Show toast notification
         CartManager.showToast(`${item.name} added to cart!`, 'success');
 
-        // Update cart count if on same page
+        // Update cart count if cart manager exists on this page
         if (window.cartManager) {
             window.cartManager.cart = cart;
             window.cartManager.updateCartCount();
+        } else {
+            // Dispatch event for other pages to update
+            window.dispatchEvent(new CustomEvent('cartUpdated'));
         }
     }
 
@@ -102,8 +133,10 @@ class CartManager {
     removeItem(itemId) {
         this.cart = this.cart.filter(item => item.id !== itemId);
         this.saveCart();
-        this.renderCart();
-        this.showToast('Item removed from cart', 'success');
+        if (this.isCartPage()) {
+            this.renderCart();
+        }
+        CartManager.showToast('Item removed from cart', 'success');
     }
 
     // Update item quantity
@@ -115,7 +148,9 @@ class CartManager {
             } else {
                 item.quantity = newQuantity;
                 this.saveCart();
-                this.renderCart();
+                if (this.isCartPage()) {
+                    this.renderCart();
+                }
             }
         }
     }
@@ -127,8 +162,10 @@ class CartManager {
         if (confirm('Are you sure you want to clear your cart?')) {
             this.cart = [];
             this.saveCart();
-            this.renderCart();
-            this.showToast('Cart cleared successfully', 'success');
+            if (this.isCartPage()) {
+                this.renderCart();
+            }
+            CartManager.showToast('Cart cleared successfully', 'success');
         }
     }
 
@@ -149,6 +186,8 @@ class CartManager {
 
     // Render cart items
     renderCart() {
+        if (!this.isCartPage()) return;
+
         if (this.cart.length === 0) {
             this.showEmptyCart();
             return;
@@ -158,13 +197,16 @@ class CartManager {
         const totals = this.calculateTotals();
 
         // Update summary
-        this.subtotalElement.textContent = `£${totals.subtotal}`;
-        this.taxElement.textContent = `£${totals.tax}`;
-        this.totalElement.textContent = `£${totals.total}`;
+        if (this.subtotalElement) this.subtotalElement.textContent = `£${totals.subtotal}`;
+        if (this.taxElement) this.taxElement.textContent = `£${totals.tax}`;
+        if (this.totalElement) this.totalElement.textContent = `£${totals.total}`;
 
         // Render items
         this.cartItemsContainer.innerHTML = this.cart.map((item, index) => `
             <div class="cart-item" style="animation-delay: ${index * 0.1}s">
+                <div class="cart-item-image">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='./assets/images/default-food.jpg'">
+                </div>
                 <div class="cart-item-details">
                     <h4>${item.name}</h4>
                     <p>${item.description || ''}</p>
@@ -187,6 +229,8 @@ class CartManager {
 
     // Show empty cart message
     showEmptyCart() {
+        if (!this.isCartPage()) return;
+
         this.cartSummary.style.display = 'none';
         this.cartItemsContainer.innerHTML = `
             <div class="empty-cart-message">
@@ -200,6 +244,8 @@ class CartManager {
 
     // Attach event listeners
     attachEventListeners() {
+        if (!this.isCartPage()) return;
+
         // Clear cart button
         const clearBtn = document.getElementById('clearCartBtn');
         if (clearBtn) {
@@ -215,51 +261,51 @@ class CartManager {
 
     // Attach event listeners to cart items
     attachItemEventListeners() {
-        // Quantity buttons
-        document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const itemId = e.target.dataset.id;
-                const item = this.cart.find(item => item.id === itemId);
-                if (item) {
-                    this.updateQuantity(itemId, item.quantity - 1);
-                }
-            });
+        if (!this.isCartPage()) return;
+
+        // Quantity buttons - use event delegation for better performance
+        this.cartItemsContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.quantity-btn');
+            if (!btn) return;
+            
+            const itemId = btn.dataset.id;
+            const item = this.cart.find(item => item.id === itemId);
+            if (!item) return;
+
+            if (btn.classList.contains('minus')) {
+                this.updateQuantity(itemId, item.quantity - 1);
+            } else if (btn.classList.contains('plus')) {
+                this.updateQuantity(itemId, item.quantity + 1);
+            }
         });
 
-        document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const itemId = e.target.dataset.id;
-                const item = this.cart.find(item => item.id === itemId);
-                if (item) {
-                    this.updateQuantity(itemId, item.quantity + 1);
-                }
-            });
-        });
-
-        // Remove buttons
-        document.querySelectorAll('.remove-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const itemId = e.currentTarget.dataset.id;
+        // Remove buttons - use event delegation
+        this.cartItemsContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.remove-btn');
+            if (btn) {
+                const itemId = btn.dataset.id;
                 this.removeItem(itemId);
-            });
+            }
         });
     }
 
     // Handle checkout
     handleCheckout() {
         if (this.cart.length === 0) {
-            this.showToast('Your cart is empty!', 'error');
+            CartManager.showToast('Your cart is empty!', 'error');
             return;
         }
 
-        // Simulate checkout process
         const checkoutBtn = document.getElementById('checkoutBtn');
+        if (!checkoutBtn) return;
+
+        // Simulate checkout process
         const originalText = checkoutBtn.innerHTML;
         checkoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         checkoutBtn.disabled = true;
 
         setTimeout(() => {
-            this.showToast('Order placed successfully! Thank you for your order.', 'success');
+            CartManager.showToast('Order placed successfully! Thank you for your order.', 'success');
             this.cart = [];
             this.saveCart();
             this.renderCart();
@@ -268,7 +314,7 @@ class CartManager {
         }, 2000);
     }
 
-    // Show toast notification
+    // Show toast notification (static method)
     static showToast(message, type = 'success') {
         // Remove existing toast
         const existingToast = document.querySelector('.toast');
@@ -282,20 +328,91 @@ class CartManager {
             <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
             <span>${message}</span>
         `;
+        
+        // Add base styles if not already in CSS
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        `;
+        
+        // Set background color based on type
+        if (type === 'success') {
+            toast.style.background = '#4CAF50';
+            toast.style.color = 'white';
+        } else {
+            toast.style.background = '#f44336';
+            toast.style.color = 'white';
+        }
+        
         document.body.appendChild(toast);
 
         // Trigger animation
-        setTimeout(() => toast.classList.add('show'), 10);
+        requestAnimationFrame(() => {
+            toast.style.transform = 'translateX(0)';
+        });
 
         // Remove after 3 seconds
         setTimeout(() => {
-            toast.classList.remove('show');
+            toast.style.transform = 'translateX(400px)';
             setTimeout(() => toast.remove(), 300);
         }, 3000);
     }
 
+    // Instance wrapper for showToast (for consistency)
     showToast(message, type) {
         CartManager.showToast(message, type);
+    }
+
+    // Update badge globally (call from main.js)
+    static updateBadgeGlobally() {
+        const cart = JSON.parse(localStorage.getItem('cafeCart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        
+        const cartIcon = document.querySelector('.fa-shopping-cart');
+        if (!cartIcon) return;
+        
+        const cartParent = cartIcon.closest('a') || cartIcon.parentElement;
+        if (!cartParent) return;
+
+        // Remove existing badge
+        const existingBadge = cartParent.querySelector('.cart-badge');
+        if (existingBadge) existingBadge.remove();
+
+        if (totalItems > 0) {
+            const badge = document.createElement('span');
+            badge.className = 'cart-badge';
+            badge.textContent = totalItems;
+            badge.style.cssText = `
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background: var(--secondary-color, #D4A574);
+                color: white;
+                font-size: 0.75rem;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                z-index: 1000;
+            `;
+            cartParent.style.position = 'relative';
+            cartParent.style.display = 'inline-block';
+            cartParent.appendChild(badge);
+        }
     }
 }
 

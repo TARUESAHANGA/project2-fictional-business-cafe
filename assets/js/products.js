@@ -1,7 +1,3 @@
-/**
- * Products page cart integration for The Cafe Website
- * Integrates with the existing CartManager class
- */
 
 class ProductCart {
     constructor() {
