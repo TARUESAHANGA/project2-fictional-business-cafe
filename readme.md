@@ -21,7 +21,8 @@ A fully responsive, modern cafe website built with HTML, CSS, and JavaScript. Fe
 
 
 
-## 📁 Project Structure
+## 📁 Project Structure 
+```
 the-cafe-website/
 ├── 📁 assets
 │   ├── 📁 css
@@ -57,7 +58,7 @@ the-cafe-website/
 │   └── 🌐 cart.html                   # Shopping cart page
 ├── 🌐 index.html                      # Homepage
 └── 📝 readme.md                       # This file
-
+```
 
 ## 🚀 Quick Start
 
@@ -196,6 +197,15 @@ Fonts: Google Fonts (Jost)
 Icons: Font Awesome
 Images: Placeholder images from placeholder.com
 Color Scheme: Inspired by modern cafe aesthetics
+
+## Validation
+- HTML - https://validator.w3.org/#validate_by_input
+- CSS - http://jigsaw.w3.org/css-validator/
+- JavaScript - https://javascriptvalidator.net/
+
+### HTML
+### CSS
+### JavaScript
 
 ### 📞 Support
 For questions or issues:
