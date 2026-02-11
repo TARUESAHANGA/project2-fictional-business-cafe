@@ -117,9 +117,15 @@ Social media links
 ### 🛒 Cart (pages/cart.html)
 ###### Shopping Cart Features:
 - Add/remove items
+ ![removing items](./assets/images/cart%20screen%20shots/delete%20item%20button.png)
+ ![adding items](./assets/images/cart%20screen%20shots/adding%20to%20cart.png)
 - Quantity adjustment (+/-)
+ ![adjusting quantity](./assets/images/cart%20screen%20shots/increment%20and%20decreament%20buttons.png)
 - Real-time price calculations
+ ![calculations](./assets/images/cart%20screen%20shots/calculations.png)
 - Order summary with total
+- Clear cart to remove all items from the basket
+ ![clear cart](./assets/images/cart%20screen%20shots/clear%20cart%20button.png)
 - Persistent storage (survives page refresh)
 - Checkout process simulation
 
@@ -132,27 +138,10 @@ Social media links
 * Shopping Cart Integration: Real-time cart icon updates across all pages
 
 ### 📱 Mobile Features
-Native select dropdown for quick menu access on small screens (≤400px)
 Responsive images that scale with container width
 Smooth scrolling for anchor links
 Collapsible hamburger menu for space efficiency
 Stacked layout optimization for touch interactions
-
-### Menu Categories
-1. ☕ Coffee & Espresso
-2. 🍵 Tea & Beverages
-3. 🥐 Fresh Pastries
-4. 🥪 Lunch & Light Bites
-5. 🍰 Desserts
-6. 🍳 Kiddies Meal
-7. ⭐ Daily Specials
-
-## 🛠️ Browser Support
-✅ Chrome (latest)
-✅ Firefox (latest)
-✅ Safari (latest)
-✅ Edge (latest)
-✅ Mobile browsers (iOS Safari, Chrome Android)
 
 ### 🎓 Learning Opportunities
 This project demonstrates:
@@ -190,27 +179,82 @@ Accessibility enhancements
 📄 License
 This project is open source and available under the MIT License.
 
-### 🙏 Credits
-Developer: Tarumbidzwa Sahanga - Frontend Web Developer
-Location: Gateshead, Tyne and Wear, England
-Fonts: Google Fonts (Jost)
-Icons: Font Awesome
-Images: Placeholder images from placeholder.com
-Color Scheme: Inspired by modern cafe aesthetics
-
 ## Validation
 - HTML - https://validator.w3.org/#validate_by_input
 - CSS - http://jigsaw.w3.org/css-validator/
 - JavaScript - https://javascriptvalidator.net/
 
 ### HTML
-### CSS
-### JavaScript
+#### index/home.html    
+![index.html](./assets/images/validation%20screenshots%20HTML/html%20shots/home%20page%20index.html.png)
+- errors found: Trailing slash on void elements
+- errors found: Two consecutive hyphens in comment
+![index.html](./assets/images/validation%20screenshots%20HTML/html%20shots/index.html%20with%20no%20errors%20.png)
+- removed the trailing slash and extra hyphens
 
-### 📞 Support
-For questions or issues:
-Create an issue in the repository
-Check existing issues for solutions
-Review the code comments for implementation details
-Contact: taruesahanga@gmail.com
-Built with ☕ and 💻 by Tarumbidzwa Sahanga
+#### menu.html
+![menu.html](./assets/images/validation%20screenshots%20HTML/html%20shots/menu.html%20no%20errors%20or%20warnings.png)
+
+#### about.html
+![about.html](./assets/images/validation%20screenshots%20HTML/html%20shots/about.html%20no%20errors%20or%20warnings.png)
+
+#### products.html
+![products](./assets/images/validation%20screenshots%20HTML/html%20shots/products.html%20no%20errors%20or%20warnings.png)
+
+#### contact.html
+![contact.html](./assets/images/validation%20screenshots%20HTML/html%20shots/contact.html%20no%20errors%20and%20warnings.png)
+
+#### cart.html
+![cart.html](./assets/images/validation%20screenshots%20HTML/html%20shots/cart.html%20no%20errors.png)
+### CSS
+#### styles/global.css
+![styles.css](./assets/images/validation%20screenshots%20HTML/css%20shots/styles.css%20no%20errors.png)
+
+#### about.css
+![about.css](./assets/images/validation%20screenshots%20HTML/css%20shots/about.css%20no%20error%20found%20warnings.png)
+
+#### cart.css
+![cart.css](./assets/images/validation%20screenshots%20HTML/css%20shots/cart.css%20no%20errors.png)
+
+#### contact.css
+![contact.css](./assets/images/validation%20screenshots%20HTML/css%20shots/contact.css%20no%20errors.png)
+
+#### landingPage.css
+![landingPage.css](./assets/images/validation%20screenshots%20HTML/css%20shots/landingPage.css%20no%20errors.png)
+
+#### menu.css
+![menu.css](./assets/images/validation%20screenshots%20HTML/css%20shots/menu.css%20no%20errors.png)
+
+#### mediaQueries.css 920, 600 & 400
+![mediaQueries-920.css](./assets/images/validation%20screenshots%20HTML/css%20shots/mediaQueries-920.css%20no%20errors.png)
+![mediaQueries-600.css](./assets/images/validation%20screenshots%20HTML/css%20shots/mediaQueries-600.css%20no%20errors.png)
+![mediaQueries-400.css](./assets/images/validation%20screenshots%20HTML/css%20shots/mediaQueries-400.css%20no%20errors.png)
+
+#### products.css
+![products.css](./assets/images/validation%20screenshots%20HTML/css%20shots/product.css%202%20errors%20found.png)
+- errors found: box shadow value not set
+![products.css](./assets/images/validation%20screenshots%20HTML/css%20shots/product.css%20fixed%20errors%20found.png)
+- errors fixed by adding box shadow values.
+
+### JavaScript
+#### cart.js
+![cart.js](./assets/images/validation%20screenshots%20HTML/js%20shots/cart.js%20no%20errors.png)
+
+#### menu.js
+![menu.js](./assets/images/validation%20screenshots%20HTML/js%20shots/menu.js%20no%20errors.png)
+
+#### menu-cart.js
+![menu-cart.js](./assets/images/validation%20screenshots%20HTML/js%20shots/menu-cart.js%20no%20errors.png)
+
+#### products.js
+![products.js](./assets/images/validation%20screenshots%20HTML/js%20shots/products.js%20no%20errors.png)
+
+#### main.js
+![main.js](./assets/images/validation%20screenshots%20HTML/js%20shots/main.js%20errors%20found.png)
+- Linting error: no inner declarations
+- structural issue: calling functions that may not exist yet
+![main.js no errors](./assets/images/validation%20screenshots%20HTML/js%20shots/main.js%20no%20errors.png)
+- Lint rule: function declarations can not appear inside blocks
+- Solution: move the function outside then call it inside the block
+
+
