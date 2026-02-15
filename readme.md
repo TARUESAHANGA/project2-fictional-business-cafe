@@ -161,6 +161,7 @@ HTML5 Semantic Structure - Proper use of the following tags
 - Accessibility - ARIA labels, skip links, keyboard navigation, focus management
 
 ### 🗺️ Roadmap
+```
 Future enhancements planned:
 [ ] User authentication system
 [ ] Online payment integration (Stripe/PayPal)
@@ -169,7 +170,7 @@ Future enhancements planned:
 [ ] Newsletter subscription
 [ ] Dark mode toggle
 [ ] Multi-language support
-
+```
 ### 🤝 Contributing
 Feel free to fork this project and submit pull requests for improvements:
 Bug fixes
