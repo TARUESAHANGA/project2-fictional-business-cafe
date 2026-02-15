@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cafe Website - Cart Page</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/cart.css">
     <link rel="stylesheet" href="../assets/css/mediaQueries-400.css">
     <link rel="stylesheet" href="../assets/css/mediaQueries-600.css">
     <link rel="stylesheet" href="../assets/css/mediaQueries-920.css">
+    <!-- Linking Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet">
     <!-- Linking Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -22,18 +25,19 @@
         
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="../index.html" class="nav-link active">Home</a>
+                    <a href="../index.html" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/pages/menu.html" class="nav-link">Menu</a>
-                    <i class="fa-solid fa-chevron-down"></i>
+                <li class="nav-item has-dropdown">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                    <i class="fa-solid fa-chevron-down dropdown-toggle"></i>
                     <ul class="dropdown">
                         <li class="dropdown-item"><a href="./menu.html#coffee" class="dropdown-link">☕ Coffee & Espresso</a></li>
                         <li class="dropdown-item"><a href="./menu.html#tea" class="dropdown-link">🍵 Tea & Beverages</a></li>
                         <li class="dropdown-item"><a href="./menu.html#pastries" class="dropdown-link">🥐 Fresh Pastries</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#breakfast" class="dropdown-link">🍳 Breakfast</a></li>
                         <li class="dropdown-item"><a href="./menu.html#lunch" class="dropdown-link">🥪 Lunch & Light Bites</a></li>
                         <li class="dropdown-item"><a href="./menu.html#desserts" class="dropdown-link">🍰 Desserts</a></li>
-                        <li class="dropdown-item"><a href="./menu.html#kiddies-meal" class="dropdown-link">🧸 Kiddies Meal</a></li>
+                        <li class="dropdown-item"><a href="./menu.html#kiddies" class="dropdown-link">🧸 Kiddies Meal</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -123,16 +127,17 @@
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="./menu.html">Menu</a></li>
-                        <li><a href="./products.html">Products</a></li>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                    </ul>
-                </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="./menu.html">Menu</a></li>
+                            <li><a href="./products.html">Products</a></li>
+                            <li><a href="./about.html">About</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./cart.html">Cart</a></li>
+                        </ul>
+                    </div>
                 <div class="footer-section">
                     <h3>Hours</h3>
                     <p>Monday-Friday: 7am-7pm</p>
@@ -141,7 +146,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 The Cafe. All rights reserved.</p>
+                <p>&copy; 2026 The Cafe. All rights reserved.</p>
             </div>
         </div>
     </footer>

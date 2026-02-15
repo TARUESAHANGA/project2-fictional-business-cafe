@@ -3,43 +3,38 @@
 document.addEventListener('DOMContentLoaded', function() {
     // ===== Active Page Highlight =====
     function highlightActivePage() {
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.split('/').pop() || 'index.html';
-        const currentFolder = currentPath.includes('/pages/') ? 'pages' : 'root';
-        
+        const normalizePath = (path) => {
+            if (!path) return '/';
+            const withoutSlash = path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
+            return withoutSlash.toLowerCase();
+        };
+
+        const currentPath = normalizePath(window.location.pathname);
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
-            
-            link.classList.remove('active');
-            
-            let normalizedLinkHref = linkHref;
-            let normalizedCurrentPage = currentPage;
-            
-            if (currentFolder === 'pages') {
-                if (linkHref === '../index.html') {
-                    normalizedLinkHref = 'index.html';
-                } else {
-                    normalizedLinkHref = linkHref.startsWith('../') ? linkHref.substring(3) : linkHref;
-                }
-            } else {
-                if (linkHref.startsWith('pages/')) {
-                    normalizedLinkHref = linkHref.substring(6);
-                }
+            if (!linkHref || linkHref.startsWith('#') || linkHref.startsWith('javascript:')) {
+                return;
             }
-            
-            if (normalizedLinkHref === normalizedCurrentPage || 
-                (normalizedCurrentPage === 'index.html' && normalizedLinkHref === '/') ||
-                (normalizedCurrentPage === '' && normalizedLinkHref === 'index.html')) {
+
+            link.classList.remove('active');
+
+            const resolvedUrl = new URL(linkHref, window.location.href);
+            const linkPath = normalizePath(resolvedUrl.pathname);
+            const isIndexMatch =
+                (currentPath === '/' && linkPath.endsWith('/index.html')) ||
+                (linkPath === '/' && currentPath.endsWith('/index.html'));
+
+            if (linkPath === currentPath || isIndexMatch) {
                 link.classList.add('active');
             }
-            
+
             if (link.closest('.dropdown')) {
                 const parentNavItem = link.closest('.nav-item');
-                const parentLink = parentNavItem.querySelector('.nav-link:not(.dropdown-link)');
-                
-                if (parentLink && normalizedLinkHref === normalizedCurrentPage) {
+                const parentLink = parentNavItem ? parentNavItem.querySelector('.nav-link:not(.dropdown-link)') : null;
+
+                if (parentLink && (linkPath === currentPath || isIndexMatch)) {
                     parentLink.classList.add('active');
                 }
             }
@@ -75,6 +70,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.style.overflow = '';
             }
             setTimeout(highlightActivePage, 100);
+        });
+    });
+
+    // ===== Direct Dropdown Navigation =====
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href) return;
+
+            e.preventDefault();
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            window.location.href = new URL(href, window.location.href).href;
         });
     });
 
@@ -166,7 +180,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== Active Navigation Link on Scroll =====
     function updateActiveLink() {
         const sections = document.querySelectorAll('section[id]');
+        const hashLinks = document.querySelectorAll('.nav-link[href*="#"]');
+        if (sections.length === 0 || hashLinks.length === 0) {
+            return;
+        }
+
         const scrollPos = window.scrollY + 100;
+        let matchedLink = null;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -175,16 +195,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const navLink = document.querySelector(`.nav-link[href*="#${sectionId}"]`);
 
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                if (navLink) {
-                    navLink.classList.add('active');
-                }
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight && navLink) {
+                matchedLink = navLink;
             }
         });
+
+        if (matchedLink) {
+            hashLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            matchedLink.classList.add('active');
+        }
     }
 
     window.addEventListener('scroll', updateActiveLink);
@@ -334,6 +355,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===== Initialize =====
+    if (window.location.hash && window.showSection) {
+        window.showSection(window.location.hash);
+    }
+
     updateActiveLink();
     highlightActivePage();
 });
