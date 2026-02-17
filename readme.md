@@ -173,13 +173,15 @@ Future enhancements planned:
 ```
 ### 🤝 Contributing
 Feel free to fork this project and submit pull requests for improvements:
-Bug fixes
-Additional features
-Design improvements
-Performance optimizations
-Accessibility enhancements
-📄 License
+- Bug fixes
+- Additional features
+- Design improvements
+- Performance optimizations
+- Accessibility enhancements
+
+### 📄 License
 This project is open source and available under the MIT License.
+
 
 ## Validation
 - HTML - https://validator.w3.org/#validate_by_input
